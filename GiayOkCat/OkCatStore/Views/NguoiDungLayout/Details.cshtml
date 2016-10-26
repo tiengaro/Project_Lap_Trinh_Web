@@ -1,0 +1,138 @@
+﻿@model OkCatStore.Models.SANPHAM
+@using OkCatStore.Models
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <!-- breadcrumbs -->
+    <div class="breadcrumb_dress">
+        <div class="container">
+            <ul>
+                <li><a href="@Url.Action("Index", "NguoiDungLayout")"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Trang chủ</a> <i>/</i></li>
+                <li>Chi tiết sản phẩm</li>
+            </ul>
+        </div>
+    </div>
+    <!-- //breadcrumbs -->
+    <!-- single -->
+    <div class="single">
+        <div class="container">
+            <div class="col-md-4 single-left">
+                @Html.Action("DetailsImage", "NguoiDungLayout", new { MASP = Model.MASP, count = 1 })
+                <!-- flixslider -->
+                <script defer src="~/Scripts/jquery.flexslider.js"></script>
+                <link rel="stylesheet" href="~/Content/flexslider.css" type="text/css" media="screen" />
+                @*<script>
+					// Can also be used with $(document).ready()
+					$(window).load(function() {
+					  $('.flexslider').flexslider({
+						animation: "slide",
+						controlNav: "thumbnails"
+					  });
+					});
+                </script>*@
+                <!-- flixslider -->
+                <!-- zooming-effect -->
+                <script src="~/Scripts/imagezoom.js"></script>
+                <!-- //zooming-effect -->
+            </div>
+
+            @{
+                int i = 1;
+                <div class="col-md-8 single-right">
+                    <h3>@Model.TENSP</h3>
+                    <div class="rating1">
+                        <span class="starRating">
+                            <input id="rating5" type="radio" name="rating" value="5">
+                            <label for="rating5">5</label>
+                            <input id="rating4" type="radio" name="rating" value="4">
+                            <label for="rating4">4</label>
+                            <input id="rating3" type="radio" name="rating" value="3" checked>
+                            <label for="rating3">3</label>
+                            <input id="rating2" type="radio" name="rating" value="2">
+                            <label for="rating2">2</label>
+                            <input id="rating1" type="radio" name="rating" value="1">
+                            <label for="rating1">1</label>
+                        </span>
+                    </div>
+
+                    <div class="color-quality">
+                        <div class="color-quality-left">
+                            <h5>Size :</h5>
+                            @Html.Action("GetSizeSanPham", "NguoiDungLayout", new { id = Model.MASP })
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+
+                <div class="simpleCart_shelfItem">
+                    <p><i class="item_price">@String.Format("{0:0,0}", Model.GIABAN) VNĐ</i></p>
+                    <p><a class="item_add" href="@Url.Action("ThemGioHang","GioHang", new { @iMaSP = Model.MASP, @strURL = Request.Url.ToString() })">Thêm vào giỏ hàng</a></p>
+                </div>
+            }
+
+
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+
+    <div class="additional_info">
+        <div class="container">
+            <div class="sap_tabs">
+                <div id="horizontalTab1" style="display: block; width: 100%; margin: 0px;">
+                    <ul>
+                        <li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><span>Product Information</span></li>
+                        <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><span>Reviews</span></li>
+                    </ul>
+                    <div class="tab-1 resp-tab-content additional_info_grid" aria-labelledby="tab_item-0">
+                        <p>
+                            <h1>@Model.TENSP</h1>
+                        </p>
+                        @Html.Action("LayHinhSanPham", "NguoiDungLayout", new { MASP = Model.MASP, count = 100 })
+
+                    </div>
+
+                    <div class="tab-2 resp-tab-content additional_info_grid" aria-labelledby="tab_item-1">
+                        @Html.Action("GetReviews", "NguoiDungLayout", new { id = Model.MASP })
+                        <div class="review_grids">
+                            <h5>Thêm Đánh Giá</h5>
+                            @{
+                                KHACHHANG kh = (KHACHHANG)Session["TaiKhoan"];
+                                if (kh == null)
+                                {
+                                    kh = new KHACHHANG();
+                                }
+                            }
+                            <form action="@Url.Action("PostReview", "NguoiDungLayout", new { @id = Model.MASP ,@strURL = Request.Url.ToString() })" method="post">
+                                <input type="text" name="Name" value="@kh.HOTENKH" placeholder="Họ và tên" required="">
+                                <input type="email" name="Email" value="@kh.EMAILKH" placeholder="Email" required="">
+                                <input type="text" name="Telephone" value="@kh.SODTKH" placeholder="Số điện thoại" required="">
+                                <textarea name="Review" placeholder="Đánh giá sản phẩm" required="">Add Your Review</textarea>
+                                <input type="submit" value="Đánh giá">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script src="~/Scripts/easyResponsiveTabs.js" type="text/javascript"></script>
+            <script type="text/javascript">
+				$(document).ready(function () {
+					$('#horizontalTab1').easyResponsiveTabs({
+						type: 'default', //Types: default, vertical, accordion
+						width: 'auto', //auto or any width like 600px
+						fit: true   // 100% fit in a container
+					});
+				});
+            </script>
+        </div>
+    </div>
+@Html.Action("GetSanPhamLienQuan", "NguoiDungLayout", new { id = Model.MATH})
+</body>
+</html>

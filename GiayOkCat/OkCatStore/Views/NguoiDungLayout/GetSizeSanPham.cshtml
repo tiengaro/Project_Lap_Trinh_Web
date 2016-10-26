@@ -1,0 +1,32 @@
+﻿@model IEnumerable<OkCatStore.Models.SIZE>
+
+@{
+    var i = 1;
+    foreach (var item in Model)
+    {
+
+        string id = "optionsRadios" + i;
+        if (i == 1)
+        {
+
+            <div class="colr">
+                <div class="radio">
+                    <label class="checkbox">
+                        <input type="radio" name="radio" id=@id checked><i> </i>@item.TENSIZE
+                    </label>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="colr">
+                <div class="radio">
+                    <label class="checkbox">
+                        <input type="radio" name="radio" id=@id><i> </i>@item.TENSIZE
+                    </label>
+                </div>
+            </div>
+        }
+        i++;
+    }
+}

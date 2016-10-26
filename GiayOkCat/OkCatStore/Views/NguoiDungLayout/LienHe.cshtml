@@ -1,0 +1,262 @@
+﻿@model OkCatStore.Models.LIENHE
+
+@{
+    ViewBag.Title = "LienHe";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<div class="footer">
+    <div class="container">
+        <div class="pagetitle row">
+            <b>THÔNG TIN LIÊN HỆ</b>
+        </div>
+        <div class="w3_footer_grids">
+            <div class="col-md-4 w3_footer_grid">
+                <address>
+                    <b>OkCatStore: 475A Điện Biên Phủ, P.25, Q.Bình Thạnh, Thành phố Hồ Chí Minh</b><br>
+                    <abbr title="Phone">Điện thoại:</abbr> 0989.112.644<br>
+                    <abbr title="Phone">Email: </abbr> <a href="mailto:cskh@okcat.com">cskh@okcat.com</a><br>
+                </address>
+            </div>
+            <div class="col-md-8 wthree_banner_bottom_right">
+                <iframe 
+                        width="95%" height="400Wpx" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.1188803492937!2d106.71277521390103!3d10.802206061673246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6c3d29d370b52a7e!2zSFVURUNIIC0gxJDhuqFpIGjhu41jIEPDtG5nIG5naOG7hyBUUC5IQ00!5e0!3m2!1svi!2s!4v1476244153954" frameborder="0" style="border:0" allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="banner-bottom">
+            <div class="col-md-3 wthree_banner_bottom_left"></div>
+            <div class="col-md-6 wthree_banner_bottom_right">
+                <div class="pagetitle">
+                    <b> GỬI EMAIL LIÊN HỆ</b>
+                </div>
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.TENSP, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.TENSP, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.TENSP, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            HINHANH
+                            <div class="col-md-10">
+                                <input type="file" name="file">
+                                @*Thông báo trùng*@
+                                @ViewBag.ThongBao
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2"> Họ tên (*) </label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.HOTENLH, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.HOTENLH, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Công ty </label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.CONGTYLH, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.CONGTYLH, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Điện thoại (*) </label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.DIENTHOAILH, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.DIENTHOAILH, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Email (*) </label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.EMAILLH, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.EMAILLH, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Liên hệ về (*) </label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.VANDELH, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.VANDELH, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="THÊM MỚI" class="btn btn-default" />
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                @*<form action="http://mwcshop.com/lien-he" class="form-horizontal" id="ContactForm" method="post">
+                    <i style="color:#ff0000;"><span class="field-validation-valid" data-valmsg-for="_FORM" data-valmsg-replace="true"></span> </i>
+                    <div style="padding:10px; background:#eee;display:none;">mwcshop đã nhận được thông tin của bạn. Chúng tôi sẽ phản hồi trong thời gian sớm nhất.</div>
+                    <div class="small" style="margin-left:180px;font-style:italic;color:#FF0000;">(*) Thông tin bắt buộc</div>
+                    <br>
+                    <div class="form-group">
+                        <label class="col-md-2 wthree_banner_bottom_left" for="HoTen">
+                            Họ tên (*)
+                        </label>
+                        <div class="controls">
+                            <input type="text" name="HoTen" id="HoTen" placeholder="Họ tên người liên hệ" class="form-control" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 wthree_banner_bottom_left" for="Gender">Giới tính (*)</label>
+                        <div class="col-md-8 wthree_banner_bottom_right">
+                            <label class="radio inline">
+                                <input type="radio" name="Gender" id="rdNam" value="Nam"> Nam
+                            </label>
+                            <label class="radio inline">
+                                <input type="radio" name="Gender" id="rdNu" value="Nu"> Nữ
+                            </label>
+                            <label for="Gender" generated="true" class="error" style="display: none; ">Vui lòng chọn giới tính</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 wthree_banner_bottom_left" for="CongTy">
+                            Công ty
+                        </label>
+                        <div class="controls">
+                            <input type="text" name="CongTy" id="CongTy" placeholder="Công ty" class="form-control" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 wthree_banner_bottom_left" for="DienThoai">
+                            Điện thoại (*)
+                        </label>
+                        <div class="controls">
+                            <input type="text" name="DienThoai" id="DienThoai" placeholder="Điện thoại liên hệ" class="form-control" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 wthree_banner_bottom_left" for="Email">
+                            Email (*)
+                        </label>
+                        <div class="controls">
+                            <input type="text" name="Email" id="Email" placeholder="Email liên hệ" class="form-control" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 wthree_banner_bottom_left" for="TieuDe">
+                            Liên hệ về (*)
+                        </label>
+                        <div class="controls">
+                            <input type="text" name="TieuDe" id="TieuDe" placeholder="Liên hệ về vấn đề gì?" class="form-control" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 wthree_banner_bottom_left" for="NoiDungLienHe">
+                            Nội dung liên hệ (*)
+                        </label>
+                        <div class="controls">
+                            <textarea rows="6" class="form-control" name="NoiDungLienHe" id="NoiDungLienHe"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 wthree_banner_bottom_left" for=""></label>
+                        <div class="controls">
+                            <button type="submit" class="btn btn-warning">Gửi thông tin liên hệ</button>
+                        </div>
+                    </div>
+                </form>*@
+            </div>
+            <div class="clearfix"> </div>
+
+            @*<div class="w3_footer_grids">
+                <div class="col-md-4 w3_footer_grid></div>
+                <div class="col-md-8 wthree_banner_bottom_right">
+                    <div class="pagetitle">
+                        <b> GỬI EMAIL LIÊN HỆ</b>
+                    </div>
+                    <form action="http://mwcshop.com/lien-he" class="form-horizontal" id="ContactForm" method="post">
+                        <i style="color:#ff0000;"><span class="field-validation-valid" data-valmsg-for="_FORM" data-valmsg-replace="true"></span> </i>
+                        <div style="padding:10px; background:#eee;display:none;">mwcshop đã nhận được thông tin của bạn. Chúng tôi sẽ phản hồi trong thời gian sớm nhất.</div>
+                        <div class="small" style="margin-left:180px;font-style:italic;color:#FF0000;">(*) Thông tin bắt buộc</div>
+                        <br>
+                        <div class="form-group">
+                            <label class="col-md-2 wthree_banner_bottom_left" for="HoTen">
+                                Họ tên (*)
+                            </label>
+                            <div class="controls">
+                                <input type="text" name="HoTen" id="HoTen" placeholder="Họ tên người liên hệ" class="form-control" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 wthree_banner_bottom_left" for="Gender">Giới tính (*)</label>
+                            <div class="col-md-8 wthree_banner_bottom_right">
+                                <label class="radio inline">
+                                    <input type="radio" name="Gender" id="rdNam" value="Nam"> Nam
+                                </label>
+                                <label class="radio inline">
+                                    <input type="radio" name="Gender" id="rdNu" value="Nu"> Nữ
+                                </label>
+                                <label for="Gender" generated="true" class="error" style="display: none; ">Vui lòng chọn giới tính</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 wthree_banner_bottom_left" for="CongTy">
+                                Công ty
+                            </label>
+                            <div class="controls">
+                                <input type="text" name="CongTy" id="CongTy" placeholder="Công ty" class="form-control" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 wthree_banner_bottom_left" for="DienThoai">
+                                Điện thoại (*)
+                            </label>
+                            <div class="controls">
+                                <input type="text" name="DienThoai" id="DienThoai" placeholder="Điện thoại liên hệ" class="form-control" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 wthree_banner_bottom_left" for="Email">
+                                Email (*)
+                            </label>
+                            <div class="controls">
+                                <input type="text" name="Email" id="Email" placeholder="Email liên hệ" class="form-control" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 wthree_banner_bottom_left" for="TieuDe">
+                                Liên hệ về (*)
+                            </label>
+                            <div class="controls">
+                                <input type="text" name="TieuDe" id="TieuDe" placeholder="Liên hệ về vấn đề gì?" class="form-control" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 wthree_banner_bottom_left" for="NoiDungLienHe">
+                                Nội dung liên hệ (*)
+                            </label>
+                            <div class="controls">
+                                <textarea rows="6" class="form-control" name="NoiDungLienHe" id="NoiDungLienHe"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 wthree_banner_bottom_left" for=""></label>
+                            <div class="controls">
+                                <button type="submit" class="btn btn-warning">Gửi thông tin liên hệ</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>*@
+        </div>
+</div>

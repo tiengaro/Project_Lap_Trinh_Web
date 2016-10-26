@@ -1,0 +1,137 @@
+﻿@using OkCatStore.Models
+@{
+    ViewBag.Title = "DatHang";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<body>
+    <!-- breadcrumbs -->
+    <div class="breadcrumb_dress">
+        <div class="container">
+            <ul>
+                <li><a href="@Url.Action("Index", "NguoiDungLayout")"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a> <i>/</i></li>
+                <li>Giỏ hàng</li>
+            </ul>
+        </div>
+    </div>
+    <!-- //breadcrumbs -->
+    <h2 style="text-align:center"> <font color=red>@ViewData["Login"]</font> </h2>
+    <!-- checkout -->
+    <div class="checkout">
+        <div class="container">
+            <h3>Hàng hóa của bạn hiện đang có: <span>@ViewBag.TongSoLuong Sản Phẩm</span></h3>
+
+            <div class="checkout-right">
+                <table class="timetable_sub">
+                    <thead>
+                        <tr>
+                            <th>Mã</th>
+                            <th width="300dp">Sản Phẩm</th>
+                            <th width="200dp">Số Lượng</th>
+                            <th>Tên Sản Phẩm</th>
+                            <th>Đơn Giá</th>
+                            <th>Thành Tiền</th>
+                            <th>Xoá</th>
+                        </tr>
+                    </thead>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr class="rem1">
+                            <td class="invert">@item.iMaSP</td>
+                            <td class="invert-image"><a href="@Url.Action("Details", "NguoiDungLayout", new { id = item.iMaSP })"><img src="~/images/@item.sAnhDaiDien" /></a></td>
+                            <td class="invert"><a href="@Url.Action("Details", "NguoiDungLayout", new { id = item.iMaSP })">@item.sTenSP</a></td>
+                            @using (Html.BeginForm("CapNhatGioHang", "GioHang", new { @iMaSp = item.iMaSP }))
+                            {
+                                <td class="invert">
+                                    @item.iSoLuong
+                                    <div>
+                                        <input type="submit" value="Update" />
+                                    </div>
+                                </td>
+                                <td class="invert">@String.Format("{0:0,0}", item.dDonGia) VNĐ</td>
+                                <td class="invert">@String.Format("{0:0,0}", item.dThanhTien) VNĐ</td>
+                                <td class="invert">@Html.ActionLink("X", "XoaGioHang", new { @iMaSP = item.iMaSP }) </td>
+                            }
+                        </tr>
+                    }
+                </table>
+            </div>
+            <div class="checkout-left">
+                <div class="checkout-left-basket" style="width:450px">
+                    <ul>
+                        @foreach (var item in Model)
+                        {
+                            <li>@item.sTenSP <i>-</i> <span>@String.Format("{0:0,0}", item.dThanhTien) VNĐ</span></li>
+                        }
+                        <li></li>
+                        <li>Tổng tiền <i>-</i> <span>@String.Format("{0:0,0}", @ViewBag.TongTien) VNĐ</span></li>
+                    </ul>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <h2 style="text-align:center">THÔNG TIN ĐẶT HÀNG</h2>
+    @{
+        KHACHHANG kh = (KHACHHANG)Session["TaiKhoan"];
+    }
+
+    <table align="center">
+        <h2 style="text-align: center">Thông Tin Tài Khoản</h2>
+        <h3 style="text-align: center"><font color=blue>@ViewData["ThanhCong"]</font> </h3>
+        @using (Html.BeginForm())
+        {
+            <tr style="height:40px">
+                <td>Họ Tên Khách Hàng: </td>
+                <td style="font-weight:bold">@kh.HOTENKH</td>
+            </tr>
+            <tr style="height:40px">
+                <td>Địa Chỉ: </td>
+                <td style="font-weight:bold">@kh.DIACHIKH</td>
+            </tr>
+            <tr style="height:40px">
+                <td>Điện Thoại: </td>
+                <td style="font-weight:bold">@kh.SODTKH</td>
+            </tr>
+            <tr style="height:40px">
+                <td>Ngày Đặt: </td>
+                <td style="font-weight:bold"> @DateTime.Now.ToShortDateString() </td>
+            </tr>
+            <tr style="height:40px">
+                <td>Ngày Giao Hàng: </td>
+                <td style="font-weight:bold"> <input type="date"  name="NgayGiao" required="Chưa nhập ngày giao hàng"</td>
+            </tr>
+            <tr style="height:40px">
+                <td>Hình thức thanh toán:</td>
+                <td></td>
+            </tr>
+            <tr style="height:40px">
+                <td>
+                    <div class="radio">
+                        <label class="checkbox">
+                            <input type="radio" name="radio" id=optionsRadios1 checked value="Thanh toán khi nhận hàng"><i> </i>Thanh toán khi nhận hàng
+                        </label>
+                    </div>
+                </td>
+                <td>
+                    <div class="radio">
+                        <label class="checkbox">
+                            <input type="radio" name="radio" id=optionsRadios2 value="Thanh toán trực tuyến"><i> </i>Thanh toán trực tuyến
+                        </label>
+                    </div>
+                </td>
+            </tr>
+            @*<tr style="height:40px">
+                <td></td>
+                <td><a href="@Url.Action("Onepay", "GioHang")">thanh toán trực tuyến</a></td>
+
+            </tr>*@
+            <tr style="height:40px">
+                <td><input type="submit" value="ĐỒNG Ý ĐẶT HÀNG" /></td>
+            </tr>
+        }
+
+    </table>
+
+</body>

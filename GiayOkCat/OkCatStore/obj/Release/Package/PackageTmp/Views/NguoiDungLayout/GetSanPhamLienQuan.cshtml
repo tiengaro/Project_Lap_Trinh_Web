@@ -1,0 +1,60 @@
+﻿@model IEnumerable<OkCatStore.Models.SANPHAM>
+
+<div class="w3l_related_products">
+    <div class="container">
+        <h3>Các Sản Phẩm Liên Quan</h3>
+        <ul id="flexiselDemo2">
+            @foreach (var item in Model)
+            {
+                <li>
+                    <div class="w3l_related_products_grid">
+                        <div class="agile_ecommerce_tab_left dresses_grid">
+                            <div class="hs-wrapper hs-wrapper3">
+                                @Html.Action("LayHinhSanPham", "NguoiDungLayout", new { MASP = item.MASP, count = 100 })
+                                <div class="w3_hs_bottom">
+                                    <div class="flex_ecommerce">
+                                        <a href="@Url.Action("Details", "NguoiDungLayout", new { id = item.MASP } )"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <h5><a href="@Url.Action("Details", "NguoiDungLayout", new { id = item.MASP } )">@item.TENSP</a></h5>
+                            <div class="simpleCart_shelfItem">
+                                <p class="flexisel_ecommerce_cart"><i class="item_price">@String.Format("{0:0,0}", @item.GIABAN) VNĐ</i></p>
+                                <p><a class="item_add" href="@Url.Action("ThemGioHang","GioHang", new { @iMaSP = item.MASP, @strURL = Request.Url.ToString() })">Thêm vào giỏ hàng</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
+        <script type="text/javascript">
+					$(window).load(function() {
+						$("#flexiselDemo2").flexisel({
+							visibleItems:4,
+							animationSpeed: 1000,
+							autoPlay: true,
+							autoPlaySpeed: 3000,
+							pauseOnHover: true,
+							enableResponsiveBreakpoints: true,
+							responsiveBreakpoints: {
+								portrait: {
+									changePoint:480,
+									visibleItems: 1
+								},
+								landscape: {
+									changePoint:640,
+									visibleItems:2
+								},
+								tablet: {
+									changePoint:768,
+									visibleItems: 3
+								}
+							}
+						});
+
+					});
+        </script>
+        <script type="text/javascript" src="~/Scripts/jquery.flexisel.js"></script>
+    </div>
+</div>
+

@@ -1,0 +1,72 @@
+﻿@using OkCatStore.Models
+<div class="tab-1 resp-tab-content additional_info_grid" aria-labelledby="tab_item-0">
+    <p>
+        <h1>@ViewBag.TenSP</h1>
+    </p>
+    @Html.Action("LayHinhSanPham", "NguoiDungLayout", new { MASP = @ViewBag.MaSP, count = 100 })
+
+</div>
+
+<div class="tab-2 resp-tab-content additional_info_grid" aria-labelledby="tab_item-1">
+    <h4>(@ViewBag.CountReviews) Reviews</h4>
+    @if (@ViewBag.CountReviews > 1)
+            {
+        foreach (var item in Model)
+                {
+            <div class="additional_info_sub_grids">
+                <div class="col-xs-12 additional_info_sub_grid_right">
+                    <div class="additional_info_sub_grid_rightl">
+                        <a>@item.name</a>
+                        <h5>@item.time</h5>
+                        <p>
+                            @item.review
+                        </p>
+                    </div>
+                    <div class="additional_info_sub_grid_rightr">
+                        <div class="rating">
+                            <div class="rating-left">
+                                <img src="~/images/star-.png" alt=" " class="img-responsive">
+                            </div>
+                            <div class="rating-left">
+                                <img src="~/images/star-.png" alt=" " class="img-responsive">
+                            </div>
+                            <div class="rating-left">
+                                <img src="~/images/star-.png" alt=" " class="img-responsive">
+                            </div>
+                            <div class="rating-left">
+                                <img src="~/images/star.png" alt=" " class="img-responsive">
+                            </div>
+                            <div class="rating-left">
+                                <img src="~/images/star.png" alt=" " class="img-responsive">
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        }
+    }
+
+
+    <div class="review_grids">
+        <h5>Thêm Đánh Giá</h5>
+        @{
+            KHACHHANG kh = (KHACHHANG)Session["TaiKhoan"];
+            if (kh == null)
+            {
+                kh = new KHACHHANG();
+            }
+        }
+        <form action="@Url.Action("PostReview", "NguoiDungLayout", new { @id = Model.MASP ,@strURL = Request.Url.ToString() })" method="post">
+            <input type="text" name="Name" value="@kh.HOTENKH" placeholder="Họ và tên" required="">
+            <input type="email" name="Email" value="@kh.EMAILKH" placeholder="Email" required="">
+            <input type="text" name="Telephone" value="@kh.SODTKH" placeholder="Số điện thoại" required="">
+            <textarea name="Review" placeholder="Đánh giá sản phẩm" required="">Add Your Review</textarea>
+            <input type="submit" value="Đánh giá">
+        </form>
+    </div>
+</div>
+
+

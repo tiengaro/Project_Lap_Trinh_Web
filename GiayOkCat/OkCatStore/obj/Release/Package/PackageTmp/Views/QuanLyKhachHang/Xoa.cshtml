@@ -1,0 +1,64 @@
+﻿@model OkCatStore.Models.KHACHHANG
+
+@{
+    ViewBag.Title = "Xoa";
+    Layout = "~/Views/Admin/AdminLayout.cshtml";
+}
+
+<h2>XÁC NHẬN THÔNG TIN KHÁCH HÀNG CẦN XÓA</h2>
+
+<h3>Bạn quyết định xóa sản phẩm nà</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            EMAIL
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMAILKH)
+        </dd>
+
+        <dt>
+            MẬT KHẨU
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MATKHAU)
+        </dd>
+
+        <dt>
+           HỌ TÊN
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HOTENKH)
+        </dd>
+
+        <dt>
+            ĐỊA CHỈ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DIACHIKH)
+        </dd>
+
+        <dt>
+           SỐ ĐT
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SODTKH)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="XÓA" class="btn btn-default" /> |
+            @Html.ActionLink("QUẢN LÝ KHÁCH HÀNG", "Index")
+        </div>
+    }
+</div>

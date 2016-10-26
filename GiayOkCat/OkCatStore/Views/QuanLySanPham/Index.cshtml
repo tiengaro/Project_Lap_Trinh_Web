@@ -1,0 +1,100 @@
+﻿@using OkCatStore.Models;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<SANPHAM>
+@*@model PagedList.IPagedList<HINHANH>*@
+@*@model IEnumerable<OkCatStore.Models.SANPHAM>*@
+
+@helper Truncate(string input, int length)
+{
+if (input.Length < length)
+{
+        @input
+}
+else
+{
+        @input.Substring(0, length)<text>...</text>
+}
+}
+
+@{
+    ViewBag.Title = "QLSANPHAM";
+    Layout = "~/Views/Admin/AdminLayout.cshtml";
+}
+
+<h2>QUẢN LÝ SẢN PHẨM</h2>
+
+<p>
+    @Html.ActionLink("THÊM MỚI", "ThemMoi")
+</p>
+<table class="table">
+    <tr>
+        <th width="200">
+            TÊN SẢN PHẨM
+        </th>
+        <th width="120dp">
+        HÌNH ẢNH
+        </th>
+        <th width="100">
+            GIÁ BÁN
+        </th>
+        <th>
+           NGÀY CẬP NHẬT
+        </th>
+        <th>
+            THƯƠNG HIỆU
+        </th>
+        <th>
+         PHONG CÁCH
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TENSP)
+        </td>
+        <td>
+            @Html.Action("LayHinhSanPham", "NguoiDungLayout", new { MASP = item.MASP, count = 1 })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GIABAN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGAYCAPNHAT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.THUONGHIEU.TENTH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PHONGCACH.TENPC)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Sua", new { id=item.MASP }) |
+            @Html.ActionLink("Chi tiết", "ChiTiet", new { id=item.MASP }) |
+            @Html.ActionLink("Xóa", "Xoa", new { id=item.MASP })
+        </td>
+    </tr>
+}
+
+</table>
+@* Tạo link liên kết các trang phân trang*@
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/ @Model.PageCount
+    <div class="MenuTrang">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+    </div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+
+    .MenuTrang {
+        float: right; 
+        margin-right: 6%; 
+    }
+
+    .MenuNoiDung {
+        float: right; 
+        margin-right: 10%; 
+    }
+</style>

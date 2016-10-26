@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "DoiMatKhau";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<table align="center">
+    <h2 style="text-align: center">Đổi Mật Khẩu</h2>
+    <h2 style="text-align: center"><font color=blue>@ViewData["ThanhCong"]</font> </h2>
+    @using (Html.BeginForm())
+    {
+        <tr style="height:40px">
+            <td>Mật Khẩu Cũ: </td>
+            <td>
+                <input name="OldPassword" type="password" required="" placeholder="Mật khẩu mặc định: 123456"/>
+                <font color=red>@ViewData["Loi1"]</font>
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td>Mật Khẩu Mới: </td>
+            <td><input name="NewPassword" type="password" required="" /></td>
+        </tr>
+        <tr style="height:40px">
+            <td>Xác Nhận Mật Khẩu: </td>
+            <td>
+                <input name="ConfirmNewPassword" type="password" required="" />
+                <font color=red>@ViewData["Loi2"]</font>
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td><input type="submit" value="Cập Nhật" /></td>
+            <td>@Html.ActionLink("Hủy Bỏ", "Index", "NguoiDungLayout")</td>
+        </tr>
+    }
+
+</table>
+

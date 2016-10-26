@@ -1,0 +1,14 @@
+﻿@model IEnumerable<OkCatStore.Models.PHONGCACH>
+
+<div class="col-sm-3">
+    <ul class="multi-column-dropdown">
+        <h6>Loại giày</h6>
+        @foreach (var item in Model)
+        {
+            <li><a href= @Url.Action("SanPhamTheoPhongCach", "NguoiDungLayout", new { id = item.MAPC })>
+                @item.TENPC
+                </a>
+            </li>
+        }
+    </ul>
+</div>

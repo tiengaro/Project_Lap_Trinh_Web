@@ -1,0 +1,41 @@
+﻿@model IEnumerable<OkCatStore.Models.REVIEW>
+<h4>(@ViewBag.CountReviews) Reviews</h4>
+@if (@ViewBag.CountReviews > 0)
+{
+    foreach (var item in Model)
+    {
+        <div class="additional_info_sub_grids">
+            <div class="col-xs-12 additional_info_sub_grid_right">
+                <div class="additional_info_sub_grid_rightl">
+                    <a>@item.name</a>
+                    <h5>@item.time</h5>
+                    <p>
+                        @item.review
+                    </p>
+                </div>
+                <div class="additional_info_sub_grid_rightr">
+                    <div class="rating">
+                        <div class="rating-left">
+                            <img src="~/images/star-.png" alt=" " class="img-responsive">
+                        </div>
+                        <div class="rating-left">
+                            <img src="~/images/star-.png" alt=" " class="img-responsive">
+                        </div>
+                        <div class="rating-left">
+                            <img src="~/images/star-.png" alt=" " class="img-responsive">
+                        </div>
+                        <div class="rating-left">
+                            <img src="~/images/star.png" alt=" " class="img-responsive">
+                        </div>
+                        <div class="rating-left">
+                            <img src="~/images/star.png" alt=" " class="img-responsive">
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    }
+}

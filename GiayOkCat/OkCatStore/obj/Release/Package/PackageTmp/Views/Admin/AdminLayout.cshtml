@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <link href="~/Content/TemplateAdmin/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/TemplateAdmin/css/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="~/Content/TemplateAdmin/css/style.css" rel="stylesheet" />
+    <link href="~/Content/TemplateAdmin/css/style-responsive.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome-4.6.3/font-awesome.min.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- start: Header -->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".top-nav.nav-collapse,.sidebar-nav.nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <a class="brand" href="index.html"><span>TRANG CHỦ ADMIN</span></a>
+        </div>
+      </div>
+    </div>
+    <!-- start: Header -->
+
+    <div class="container-fluid-full">
+        <div class="row-fluid">
+
+            <!-- start: Main Menu -->
+            <div id="sidebar-left" class="span2">
+                <div class="nav-collapse sidebar-nav">
+                    <ul class="nav nav-tabs nav-stacked main-menu">
+
+                        <li><a href="@Url.Action("Index","QuanLySanPham")"><i></i><span class="hidden-tablet"> Quản lý sản phẩm</span></a></li>
+                        <li><a href="@Url.Action("Index","QuanLyThuongHieu")"><i></i><span class="hidden-tablet"> Thương hiệu</span></a></li>
+                        <li><a href="@Url.Action("Index","QuanLyKhachHang")"><i></i><span class="hidden-tablet"> Quản lý khách hàng</span></a></li>
+                        <li><a href="ui.html"><i></i><span class="hidden-tablet"> Size</span></a></li>
+                        <li><a href="widgets.html"><i></i><span class="hidden-tablet"> Quản lý nhập hàng</span></a></li>
+                        <li>
+                            <a class="dropmenu" href="#"><i></i><span class="hidden-tablet">Thống kế</span><span class="label label-important"> 3 </span></a>
+                            <ul>
+                                <li><a class="submenu" href="submenu.html"><i></i><span class="hidden-tablet"> Thống kê hóa đơn</span></a></li>
+                                <li><a class="submenu" href="submenu2.html"><i></i><span class="hidden-tablet"> Thống kê chung</span></a></li>
+                                <li><a class="submenu" href="submenu3.html"><i></i><span class="hidden-tablet"> Doanh thu</span></a></li>
+                            </ul>
+                        </li>
+                        <li><a href="form.html"><i></i><span class="hidden-tablet"> Đơn đặt hàng</span></a></li>
+                        <li><a href="login.html"><i></i><span class="hidden-tablet"> Login Page</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- end: Main Menu -->
+
+            <noscript>
+                <div class="alert alert-block span10">
+                    <h4 class="alert-heading">Warning!</h4>
+                    <p>You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a> enabled to use this site.</p>
+                </div>
+            </noscript>
+
+            <!-- start: Content -->
+            <div id="content" class="span10">
+            @RenderBody()
+
+
+
+            </div><!--/.fluid-container-->
+            <!-- end: Content -->
+        </div><!--/#content.span10-->
+    </div><!--/fluid-row-->
+
+    <div class="modal hide fade" id="myModal">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+            <h3>Settings</h3>
+        </div>
+        <div class="modal-body">
+            <p>Here settings can be configured...</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn" data-dismiss="modal">Close</a>
+            <a href="#" class="btn btn-primary">Save changes</a>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <footer>
+
+        <p>
+            @*<span style="text-align:left;float:left">&copy; 2013 <a href="@Url.Action("Index","QuanLySanPham")" alt="Bootstrap_Metro_Dashboard">Quản lý sản phẩm</a></span>*@
+
+        </p>
+
+    </footer>
+
+    <!-- start: JavaScript-->
+    <script src="~/Content/TemplateAdmin/js/jquery-1.9.1.min.js"></script>
+    <script src="~/Content/TemplateAdmin/js/jquery-1.9.1.min.js"></script>
+    <script src="~/Content/TemplateAdmin/js/jquery-migrate-1.0.0.min.js"></script>
+
+    <script src="~/Content/TemplateAdmin/js/jquery-ui-1.10.0.custom.min.js"></script>
+
+    <script src="~/Content/TemplateAdmin/js/jquery.ui.touch-punch.js"></script>
+
+    <script src="~/Content/TemplateAdmin/js/modernizr.js"></script>
+
+    <script src="~/Content/TemplateAdmin/js/bootstrap.min.js"></script>
+
+    <script src="~/Content/TemplateAdmin/js/jquery.cookie.js"></script>
+
+    <script src='~/Content/TemplateAdmin/js/fullcalendar.min.js'></script>
+
+    <script src='~/Content/TemplateAdmin/js/jquery.dataTables.min.js'></script>
+
+    <script src="~/Content/TemplateAdmin/js/excanvas.js"></script>
+    <script src="~/Content/TemplateAdmin/js/jquery.flot.js"></script>
+    <script src="~/Content/TemplateAdmin/js/jquery.flot.pie.js"></script>
+    <script src="~/Content/TemplateAdmin/js/jquery.flot.stack.js"></script>
+    <script src="~/Content/TemplateAdmin/js/jquery.flot.resize.min.js"></script>
+
+    <script src="~/Content/TemplateAdmin/js/jquery.chosen.min.js"></script>
+
+    <script src="~/Content/TemplateAdmin/js/jquery.uniform.min.js"></script>
+
+    <script src="~/Content/TemplateAdmin/js/jquery.cleditor.min.js"></script>
+
+    <script src="~/Content/TemplateAdmin/js/jquery.noty.js"></script>
+
+    <script src="~/Content/TemplateAdmin/js/jquery.elfinder.min.js"></script>
+
+    <script src="~/Content/TemplateAdmin/js/jquery.raty.min.js"></script>
+
+    <script src="~/Content/TemplateAdmin/js/jquery.iphone.toggle.js"></script>
+
+    <script src="~/Content/TemplateAdmin/js/jquery.uploadify-3.1.min.js"></script>
+
+    <script src="~/Content/TemplateAdmin/js/jquery.gritter.min.js"></script>
+
+    <script src="~/Content/TemplateAdmin/js/jquery.imagesloaded.js"></script>
+
+    <script src="~/Content/TemplateAdmin/js/jquery.masonry.min.js"></script>
+
+    <script src="~/Content/TemplateAdmin/js/jquery.knob.modified.js"></script>
+
+    <script src="~/Content/TemplateAdmin/js/jquery.sparkline.min.js"></script>
+
+    <script src="~/Content/TemplateAdmin/js/counter.js"></script>
+
+    <script src="~/Content/TemplateAdmin/js/retina.js"></script>
+
+    <script src="~/Content/TemplateAdmin/js/custom.js"></script>
+    <!-- end: JavaScript-->
+
+</body>
+</html>

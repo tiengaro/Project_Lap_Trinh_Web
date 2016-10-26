@@ -1,0 +1,13 @@
+﻿@model IEnumerable<OkCatStore.Models.HINHANH>
+
+<div class="flexslider">
+
+    <ul class="slides">
+        @foreach (var item in Model)
+        {
+        <li>
+            <div> <img src="~/images/@item.URLHINH" data-imagezoom="true" class="img-responsive"> </div>
+        </li>
+        }
+    </ul>
+</div>

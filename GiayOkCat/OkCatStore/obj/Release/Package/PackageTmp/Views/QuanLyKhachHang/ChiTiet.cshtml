@@ -1,0 +1,58 @@
+﻿@model OkCatStore.Models.KHACHHANG
+
+@{
+    ViewBag.Title = "ChiTiet";
+    Layout = "~/Views/Admin/AdminLayout.cshtml";
+}
+
+<h2>THÔNG TIN CHI TIẾT KHÁCH HÀNG</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            EMAIL
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMAILKH)
+        </dd>
+
+        <dt>
+            MẬT KHẨU
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MATKHAU)
+        </dd>
+
+        <dt>
+            HỌ TÊN
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HOTENKH)
+        </dd>
+
+        <dt>
+            ĐỊA CHỈ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DIACHIKH)
+        </dd>
+
+        <dt>
+            SỐ ĐT
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SODTKH)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("XÓA", "Xoa", new { id = Model.MAKH }) |
+    @Html.ActionLink("QUẢN LÝ KHÁCH HÀNG", "Index")
+</p>

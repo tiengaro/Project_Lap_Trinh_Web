@@ -1,0 +1,9 @@
+﻿<div class="cart box_1">
+    <a href="@Url.Action("GioHang", "GioHang")">
+        <div class="total">
+            <span class="simpleCart_total">@String.Format("{0:0,0}", @ViewBag.TongTien) VNĐ</span> (<span id="simpleCart_quantity" class="simpleCart_quantity">@ViewBag.TongSoLuong</span> Sản phẩm)
+        </div>
+        <img src="~/images/bag.png" alt="" />
+    </a>
+    <div class="clearfix"> </div>
+</div>

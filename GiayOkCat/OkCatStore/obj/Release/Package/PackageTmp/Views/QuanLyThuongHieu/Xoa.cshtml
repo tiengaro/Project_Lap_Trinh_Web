@@ -1,0 +1,32 @@
+﻿@model OkCatStore.Models.THUONGHIEU
+
+@{
+    ViewBag.Title = "Xoa";
+    Layout = "~/Views/Admin/AdminLayout.cshtml";
+}
+
+<h2>XÁC NHẬN THÔNG TIN SẢN PHẨM CẦN XÓA</h2>
+<h3>Bạn quyết định xóa sản phẩm này</h3>
+<h3> <font color=red>@ViewBag.Loi</font> </h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TENTH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TENTH)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="XÓA" class="btn btn-default" /> |
+            @Html.ActionLink("QUẢN LÝ THƯƠNG HIỆU", "Index")
+        </div>
+    }
+</div>

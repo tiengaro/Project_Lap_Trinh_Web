@@ -1,0 +1,902 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EA794322-BEEE-4E45-A1A0-7232B2154AEB}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OkCatStore</RootNamespace>
+    <AssemblyName>OkCatStore</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Facebook, Version=6.0.10.0, Culture=neutral, PublicKeyToken=58cb4f2111d1e6de, processorArchitecture=MSIL">
+      <HintPath>..\packages\Facebook.7.0.6\lib\net45\Facebook.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1011, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.1.2.3\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.1.2.3\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.1.2.3\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.1.2.3\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.1.2.3\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=1.2.3.490, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.1.2.3\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\GioHangController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\NguoiDungLayoutController.cs" />
+    <Compile Include="Controllers\QuanLyKhachHangController.cs" />
+    <Compile Include="Controllers\QuanLySanPhamController.cs" />
+    <Compile Include="Controllers\QuanLyThuongHieuController.cs" />
+    <Compile Include="Controllers\TaiKhoanController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\DataClasses1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GioHang.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\OnePayProperty.cs" />
+    <Compile Include="Models\VPCRequest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\fasthover.css" />
+    <Content Include="css\flexslider.css" />
+    <Content Include="css\jquery.countdown.css" />
+    <Content Include="css\popuo-box.css" />
+    <Content Include="css\style.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="images\1.jpg" />
+    <Content Include="images\1.png" />
+    <Content Include="images\10.jpg" />
+    <Content Include="images\10.png" />
+    <Content Include="images\1017719_648405691899971_1720322238_n.jpg" />
+    <Content Include="images\11.jpg" />
+    <Content Include="images\11.png" />
+    <Content Include="images\12.jpg" />
+    <Content Include="images\13.jpg" />
+    <Content Include="images\13133194_1781798582051469_2015781950832804723_n.jpg" />
+    <Content Include="images\13139376_1781798525384808_3154496973367505223_n.jpg" />
+    <Content Include="images\14.jpg" />
+    <Content Include="images\15.jpg" />
+    <Content Include="images\16.jpg" />
+    <Content Include="images\17.jpg" />
+    <Content Include="images\18.jpg" />
+    <Content Include="images\19.jpg" />
+    <Content Include="images\2.jpg" />
+    <Content Include="images\2.png" />
+    <Content Include="images\20.jpg" />
+    <Content Include="images\21.jpg" />
+    <Content Include="images\22.jpg" />
+    <Content Include="images\23.jpg" />
+    <Content Include="images\24.jpg" />
+    <Content Include="images\25.jpg" />
+    <Content Include="images\26.jpg" />
+    <Content Include="images\27.jpg" />
+    <Content Include="images\28.jpg" />
+    <Content Include="images\29.jpg" />
+    <Content Include="images\2c9ecb34d19dc9960b2da89039622353.jpg" />
+    <Content Include="images\3.jpg" />
+    <Content Include="images\3.png" />
+    <Content Include="images\30.jpg" />
+    <Content Include="images\31.jpg" />
+    <Content Include="images\32.jpg" />
+    <Content Include="images\33.jpg" />
+    <Content Include="images\34.jpg" />
+    <Content Include="images\35.jpg" />
+    <Content Include="images\36.jpg" />
+    <Content Include="images\37.jpg" />
+    <Content Include="images\38.jpg" />
+    <Content Include="images\39.jpg" />
+    <Content Include="images\4.jpg" />
+    <Content Include="images\4.png" />
+    <Content Include="images\40.jpg" />
+    <Content Include="images\41.jpg" />
+    <Content Include="images\42.jpg" />
+    <Content Include="images\43.jpg" />
+    <Content Include="images\44.jpg" />
+    <Content Include="images\45.jpg" />
+    <Content Include="images\46.jpg" />
+    <Content Include="images\47.jpg" />
+    <Content Include="images\48-.jpg" />
+    <Content Include="images\48.jpg" />
+    <Content Include="images\49-.jpg" />
+    <Content Include="images\49.jpg" />
+    <Content Include="images\4cdaf1ca9efd836d1c062391ecd9e9b3.jpg" />
+    <Content Include="images\4e66e2ba513fa4a96270c144fd5f5b8c_1.png" />
+    <Content Include="images\4f0f8518af02128b1f1482645857d2ff.jpg" />
+    <Content Include="images\5.jpg" />
+    <Content Include="images\5.png" />
+    <Content Include="images\50b30d22dbc3c94166488cd4c7a8d033.jpg" />
+    <Content Include="images\51.jpg" />
+    <Content Include="images\53.jpg" />
+    <Content Include="images\54.jpg" />
+    <Content Include="images\55.jpg" />
+    <Content Include="images\56.jpg" />
+    <Content Include="images\57.jpg" />
+    <Content Include="images\58.jpg" />
+    <Content Include="images\59.jpg" />
+    <Content Include="images\6.jpg" />
+    <Content Include="images\6.png" />
+    <Content Include="images\60.jpg" />
+    <Content Include="images\61.jpg" />
+    <Content Include="images\62.jpg" />
+    <Content Include="images\63.jpg" />
+    <Content Include="images\64.jpg" />
+    <Content Include="images\65.jpg" />
+    <Content Include="images\66.jpg" />
+    <Content Include="images\67.jpg" />
+    <Content Include="images\68.jpg" />
+    <Content Include="images\69.jpg" />
+    <Content Include="images\7.jpg" />
+    <Content Include="images\7.png" />
+    <Content Include="images\70.jpg" />
+    <Content Include="images\71.jpg" />
+    <Content Include="images\72.jpg" />
+    <Content Include="images\73.jpg" />
+    <Content Include="images\74.jpg" />
+    <Content Include="images\75.jpg" />
+    <Content Include="images\76.jpg" />
+    <Content Include="images\77.jpg" />
+    <Content Include="images\8.jpg" />
+    <Content Include="images\8.png" />
+    <Content Include="images\8b3e78ad648fb26506891059e071d3bb.jpg" />
+    <Content Include="images\9.jpg" />
+    <Content Include="images\9.png" />
+    <Content Include="images\a.jpg" />
+    <Content Include="images\a.png" />
+    <Content Include="images\a1f11e62d89b60090bdee96aa6d60162.jpg" />
+    <Content Include="images\aae3f6e777df2c706d7614f73e31b286_1.jpg" />
+    <Content Include="images\ac25d8cc0424b371054f4f11b6f1ebdd.jpg" />
+    <Content Include="images\addias-ultra-boost-xanh-den-1.jpg" />
+    <Content Include="images\addias-ultra-boost-xanh-den-2.jpg" />
+    <Content Include="images\addias-ultra-boost-xanh-den-3.jpg" />
+    <Content Include="images\addias-ultra-boost-xanh-den-4.jpg" />
+    <Content Include="images\addias-ultra-boost-xanh-den-5.jpg" />
+    <Content Include="images\addias-ultra-boost-xanh-den.jpg" />
+    <Content Include="images\adidas-nmd-1.jpg" />
+    <Content Include="images\adidas-nmd-trang-3.jpg" />
+    <Content Include="images\adidas-nmd-trang-5.jpg" />
+    <Content Include="images\adidas-nmd-trang-6.jpg" />
+    <Content Include="images\adidas-nmd-trang-7.jpg" />
+    <Content Include="images\adidas-nmd-trang-ava.jpg" />
+    <Content Include="images\adidas-nmd.jpg" />
+    <Content Include="images\adidas-pure-boost-zg-den-do.jpg" />
+    <Content Include="images\adidas-stan-smith-trang-den-1.jpg" />
+    <Content Include="images\adidas-stan-smith-trang-den-10.jpg" />
+    <Content Include="images\adidas-stan-smith-trang-den-2.jpg" />
+    <Content Include="images\adidas-stan-smith-trang-den-3.jpg" />
+    <Content Include="images\adidas-stan-smith-trang-den-4.jpg" />
+    <Content Include="images\adidas-stan-smith-trang-den-6.jpg" />
+    <Content Include="images\adidas-stan-smith-trang-den-7.jpg" />
+    <Content Include="images\adidas-stan-smith-trang-den-8.jpg" />
+    <Content Include="images\adidas-stan-smith-trang-den-9.jpg" />
+    <Content Include="images\adidas-stan-smith-trang-xanh-la-10.jpg" />
+    <Content Include="images\adidas-stan-smith-trang-xanh-la-11.jpg" />
+    <Content Include="images\adidas-stan-smith-trang-xanh-la-12.jpg" />
+    <Content Include="images\adidas-stan-smith-trang-xanh-la-13.jpg" />
+    <Content Include="images\adidas-stan-smith-trang-xanh-la-14.jpg" />
+    <Content Include="images\adidas-stan-smith-trang-xanh-la-2.jpg" />
+    <Content Include="images\adidas-stan-smith-trang-xanh-la-3.jpg" />
+    <Content Include="images\adidas-stan-smith-trang-xanh-la-4.jpg" />
+    <Content Include="images\adidas-stan-smith-trang-xanh-la-5.jpg" />
+    <Content Include="images\adidas-stan-smith-trang-xanh-la-6.jpg" />
+    <Content Include="images\adidas-stan-smith-trang-xanh-la-7.jpg" />
+    <Content Include="images\adidas-stan-smith-trang-xanh-la-8.jpg" />
+    <Content Include="images\adidas-stan-smith-trang-xanh-la-9.jpg" />
+    <Content Include="images\adidas-stan-smith-trang-xanh-la.jpg" />
+    <Content Include="images\adidas-ultra-boost-2016-den-xam-1.png" />
+    <Content Include="images\adidas-ultra-boost-2016-den-xam-2.png" />
+    <Content Include="images\adidas-ultra-boost-2016-den-xam.png" />
+    <Content Include="images\adidas-ultra-boost-2016-do-cam-2.jpg" />
+    <Content Include="images\adidas-ultra-boost-2016-do-cam-3.jpg" />
+    <Content Include="images\adidas-ultra-boost-2016-do-cam-4.jpg" />
+    <Content Include="images\adidas-ultra-boost-2016-do-cam-5.jpg" />
+    <Content Include="images\adidas-ultra-boost-2016-do-cam.jpg" />
+    <Content Include="images\adidas-ultra-boost-den-full-1.png" />
+    <Content Include="images\adidas-ultra-boost-den-full-2.png" />
+    <Content Include="images\adidas-ultra-boost-den-full.png" />
+    <Content Include="images\adidas-ultra-boost-hypebeast-trang-full-1.jpg" />
+    <Content Include="images\adidas-ultra-boost-hypebeast-trang-full-2.jpg" />
+    <Content Include="images\adidas-ultra-boost-hypebeast-trang-full-3.jpg" />
+    <Content Include="images\adidas-ultra-boost-hypebeast-trang-full.jpg" />
+    <Content Include="images\adidas-ultra-boost-trang-full-1.png" />
+    <Content Include="images\adidas-ultra-boost-trang-full-2.png" />
+    <Content Include="images\adidas-ultra-boost-trang-full-3.png" />
+    <Content Include="images\adidas-ultra-boost-trang-full-4.png" />
+    <Content Include="images\adidas-ultra-boost-trang-full-5.png" />
+    <Content Include="images\adidas-ultra-boost-trang-full.png" />
+    <Content Include="images\adidas-ultra-boost-uncaged-xam-nau-1.jpg" />
+    <Content Include="images\adidas-ultra-boost-uncaged-xam-nau-2.jpg" />
+    <Content Include="images\adidas-ultra-boost-uncaged-xam-nau-3.jpg" />
+    <Content Include="images\adidas-ultra-boost-uncaged-xam-nau-4.jpg" />
+    <Content Include="images\adidas-ultra-boost-uncaged-xam-nau-5.jpg" />
+    <Content Include="images\adidas-ultra-boost-uncaged-xam-nau.jpg" />
+    <Content Include="images\adidas-ultra-boost-wood-wood-1.jpg" />
+    <Content Include="images\adidas-ultra-boost-wood-wood-2.jpg" />
+    <Content Include="images\adidas-ultra-boost-wood-wood-4.jpg" />
+    <Content Include="images\adidas-ultra-boost-wood-wood-5.jpg" />
+    <Content Include="images\adidas-ultra-boost-wood-wood-den-12.jpg" />
+    <Content Include="images\adidas-ultra-boost-wood-wood-den-13.jpg" />
+    <Content Include="images\adidas-ultra-boost-wood-wood-den-14.jpg" />
+    <Content Include="images\adidas-ultra-boost-wood-wood-den-15.jpg" />
+    <Content Include="images\adidas-ultra-boost-wood-wood-den-2.jpg" />
+    <Content Include="images\adidas-ultra-boost-wood-wood-den-3.jpg" />
+    <Content Include="images\adidas-ultra-boost-wood-wood-den-4.jpg" />
+    <Content Include="images\adidas-ultra-boost-wood-wood-den-5.jpg" />
+    <Content Include="images\adidas-ultra-boost-wood-wood-trang-1.jpg" />
+    <Content Include="images\adidas-ultra-boost-wood-wood-trang-2.jpg" />
+    <Content Include="images\adidas-ultra-boost-wood-wood-trang-3.jpg" />
+    <Content Include="images\adidas-ultra-boost-wood-wood-trang-4.jpg" />
+    <Content Include="images\adidas-ultra-boost-wood-wood-trang-5.jpg" />
+    <Content Include="images\adidas-ultra-boost-wood-wood-trang-6.jpg" />
+    <Content Include="images\adidas-ultra-boost-wood-wood-trang-7.jpg" />
+    <Content Include="images\adidas-ultra-boost-wood-wood-trang-8.jpg" />
+    <Content Include="images\adidas-ultra-boost-wood-wood-trang-9.jpg" />
+    <Content Include="images\adidas-ultra-boost-wood-wood-trang.jpg" />
+    <Content Include="images\adidas-ultra-boost-wood-wood.jpg" />
+    <Content Include="images\arrow.png" />
+    <Content Include="images\b.jpg" />
+    <Content Include="images\b.png" />
+    <Content Include="images\b1.jpg" />
+    <Content Include="images\b3.jpg" />
+    <Content Include="images\bag.png" />
+    <Content Include="images\banner2.jpg" />
+    <Content Include="images\banner3.jpg" />
+    <Content Include="images\banner4.jpg" />
+    <Content Include="images\banner5.jpg" />
+    <Content Include="images\banner6.jpg" />
+    <Content Include="images\banner7.jpg" />
+    <Content Include="images\banner8.jpg" />
+    <Content Include="images\banner9.jpg" />
+    <Content Include="images\boot_5.png" />
+    <Content Include="images\boot_dep.jpg" />
+    <Content Include="images\boot_dep1.jpg" />
+    <Content Include="images\boot_dep_12.png" />
+    <Content Include="images\boot_sandal.png" />
+    <Content Include="images\boot_xanh.png" />
+    <Content Include="images\c.jpg" />
+    <Content Include="images\c.png" />
+    <Content Include="images\c1.jpg" />
+    <Content Include="images\c2.jpg" />
+    <Content Include="images\c3.jpg" />
+    <Content Include="images\c4.jpg" />
+    <Content Include="images\c5.jpg" />
+    <Content Include="images\c6.jpg" />
+    <Content Include="images\c7.jpg" />
+    <Content Include="images\c8.jpg" />
+    <Content Include="images\c9.jpg" />
+    <Content Include="images\cachdogiay.gif" />
+    <Content Include="images\check.png" />
+    <Content Include="images\classic-trang-thap-01.JPG" />
+    <Content Include="images\classic-trang-thap-05.JPG" />
+    <Content Include="images\classic-trang-thap-06.JPG" />
+    <Content Include="images\classic-trang-thap-07.JPG" />
+    <Content Include="images\classic-trang-thap-08.JPG" />
+    <Content Include="images\classic-trang-thap-10.JPG" />
+    <Content Include="images\close.png" />
+    <Content Include="images\converse-gia-re-nhat-tphcm-35.jpg" />
+    <Content Include="images\d.jpg" />
+    <Content Include="images\dfbijdnfgisernh.jpg" />
+    <Content Include="images\dfnbgzsjdnfgdnfk.jpg" />
+    <Content Include="images\e.jpg" />
+    <Content Include="images\fdihgusfdhog.jpg" />
+    <Content Include="images\fghiufdngd.jpg" />
+    <Content Include="images\full-den-cao-05.JPG" />
+    <Content Include="images\giay-adidas-uncaged-den-1.jpg" />
+    <Content Include="images\giay-adidas-uncaged-den.jpg" />
+    <Content Include="images\giay-adidas-uncaged-den2.jpg" />
+    <Content Include="images\giay-converse-chuck-ii-xam-cao-nam-nu-cvc12-1.jpg" />
+    <Content Include="images\giay-converse-chuck-ii-xam-cao-nam-nu-cvc12-2.jpg" />
+    <Content Include="images\giay-converse-chuck-ii-xam-cao-nam-nu-cvc12-3.jpg" />
+    <Content Include="images\giay-converse-chuck-ii-xam-cao-nam-nu-cvc12-4.jpg" />
+    <Content Include="images\giay-converse-chuck-ii-xam-cao-nam-nu-cvc12.jpg" />
+    <Content Include="images\giay-converse-x-cdg-co-cao.jpg" />
+    <Content Include="images\giay-converse-x-cdg-co-thap.jpg" />
+    <Content Include="images\giay.png" />
+    <Content Include="images\giay_converse_den_tuyen_cao_co_5.jpg" />
+    <Content Include="images\giay_p_2.jpg" />
+    <Content Include="images\giay_p_g3.jpg" />
+    <Content Include="images\giay_p_gia_re.jpg" />
+    <Content Include="images\hdfjkskfkhetriu.jpg" />
+    <Content Include="images\image6.jpg" />
+    <Content Include="images\img-sp.png" />
+    <Content Include="images\img_1131.jpg" />
+    <Content Include="images\img_1133.jpg" />
+    <Content Include="images\img_1141.jpg" />
+    <Content Include="images\img_1142.jpg" />
+    <Content Include="images\img_1144.jpg" />
+    <Content Include="images\j1.jpg" />
+    <Content Include="images\j2.jpg" />
+    <Content Include="images\j3.jpg" />
+    <Content Include="images\j4.jpg" />
+    <Content Include="images\j5.jpg" />
+    <Content Include="images\j6.jpg" />
+    <Content Include="images\j7.jpg" />
+    <Content Include="images\j8.jpg" />
+    <Content Include="images\j9.jpg" />
+    <Content Include="images\jeans_luoi.png" />
+    <Content Include="images\jeans_luoi_54.png" />
+    <Content Include="images\jeans_luoi_6.png" />
+    <Content Include="images\left-arrow.png" />
+    <Content Include="images\mwcshop.jpg" />
+    <Content Include="images\mwcshop342324.jpg" />
+    <Content Include="images\mwcshopXZV.jpg" />
+    <Content Include="images\mwHUIp.jpg" />
+    <Content Include="images\nike-air-huarache-aloha-1.jpg" />
+    <Content Include="images\nike-air-huarache-aloha-2.jpg" />
+    <Content Include="images\nike-air-huarache-aloha-3.jpg" />
+    <Content Include="images\nike-air-huarache-aloha-4.jpg" />
+    <Content Include="images\nike-flyknit-racer-den-xam-1.jpg" />
+    <Content Include="images\nike-flyknit-racer-den-xam-2.jpg" />
+    <Content Include="images\nike-flyknit-racer-den-xam-3.jpg" />
+    <Content Include="images\nike-flyknit-racer-den-xam-4.jpg" />
+    <Content Include="images\nike-flyknit-racer-den-xam-5.jpg" />
+    <Content Include="images\nike-flyknit-racer-den-xam-6.jpg" />
+    <Content Include="images\nike-flyknit-racer-den-xam-7.jpg" />
+    <Content Include="images\nike-flyknit-racer-den-xam-8.jpg" />
+    <Content Include="images\nike-flyknit-racer-xam-trang-1.jpg" />
+    <Content Include="images\nike-flyknit-racer-xam-trang-2.jpg" />
+    <Content Include="images\nike-flyknit-racer-xam-trang-3.jpg" />
+    <Content Include="images\nike-flyknit-racer-xam-trang-4.jpg" />
+    <Content Include="images\nike-flyknit-racer-xam-trang-5.jpg" />
+    <Content Include="images\nike-flyknit-racer-xam-trang-6.jpg" />
+    <Content Include="images\nike-flyknit-racer-xam-trang-7.jpg" />
+    <Content Include="images\nike-flyknit-racer-xam-trang-8.jpg" />
+    <Content Include="images\nike-flyknit-racer-xam-trang-9.jpg" />
+    <Content Include="images\nike-flyknit-racer-xanh-bien-2.jpg" />
+    <Content Include="images\nike-flyknit-racer-xanh-bien-3.jpg" />
+    <Content Include="images\nike-flyknit-racer-xanh-bien-4.jpg" />
+    <Content Include="images\nike-flyknit-racer-xanh-bien-5.jpg" />
+    <Content Include="images\nike-flyknit-racer-xanh-bien.jpg" />
+    <Content Include="images\nike-flyknit-racer.jpg" />
+    <Content Include="images\nike-free-4.0-flyknit-den-1.png" />
+    <Content Include="images\nike-free-4.0-flyknit-den-2.png" />
+    <Content Include="images\nike-free-4.0-flyknit-den-3.png" />
+    <Content Include="images\nike-free-4.0-flyknit-den-4.png" />
+    <Content Include="images\nike-free-4.0-flyknit-den-5.jpg" />
+    <Content Include="images\nike-free-4.0-flyknit-den-6.jpg" />
+    <Content Include="images\nike-free-4.0-flyknit-den.png" />
+    <Content Include="images\nike-free-4.0-flyknit-hong-de-den.jpg" />
+    <Content Include="images\nike-free-4.0-flyknit-side.jpg" />
+    <Content Include="images\nike-free-nr-flyknit-den.jpg" />
+    <Content Include="images\nike-free-nr-flyknit-den1.jpg" />
+    <Content Include="images\nike-free-nr-flyknit-den2.jpg" />
+    <Content Include="images\nike-free-nr-flyknit-den3.jpg" />
+    <Content Include="images\nike-free-nr-flyknit-den4.jpg" />
+    <Content Include="images\nike-free-nr-flyknit-den5.jpg" />
+    <Content Include="images\nike-free-tr-flykint-xanh-chuoi-1.jpg" />
+    <Content Include="images\nike-free-tr-flykint-xanh-chuoi-2.jpg" />
+    <Content Include="images\nike-free-tr-flykint-xanh-chuoi-3.jpg" />
+    <Content Include="images\nike-free-tr-flykint-xanh-chuoi-4.jpg" />
+    <Content Include="images\nike-free-tr-flykint-xanh-chuoi-5.jpg" />
+    <Content Include="images\nike-free-tr-flykint-xanh-chuoi.jpg" />
+    <Content Include="images\nike-free-tr-flyknit-xam-1.jpg" />
+    <Content Include="images\nike-free-tr-flyknit-xam-2.jpg" />
+    <Content Include="images\nike-free-tr-flyknit-xam-3.jpg" />
+    <Content Include="images\nike-free-tr-flyknit-xam-4.jpg" />
+    <Content Include="images\nike-free-tr-flyknit-xam-5.jpg" />
+    <Content Include="images\nike-free-tr-flyknit-xam-6.jpg" />
+    <Content Include="images\nike-free-tr-flyknit-xam.jpg" />
+    <Content Include="images\nike-free-tr-flyknit-xanh-bien-1.jpg" />
+    <Content Include="images\nike-free-tr-flyknit-xanh-bien-2.jpg" />
+    <Content Include="images\nike-free-tr-flyknit-xanh-bien-4.jpg" />
+    <Content Include="images\nike-free-tr-flyknit-xanh-bien-5.jpg" />
+    <Content Include="images\nike-free-tr-flyknit-xanh-bien-6.jpg" />
+    <Content Include="images\nike-free-tr-flyknit-xanh-bien.jpg" />
+    <Content Include="images\nike-free-tr-flyknit-xanh-la-1.jpg" />
+    <Content Include="images\nike-free-tr-flyknit-xanh-la-2.jpg" />
+    <Content Include="images\nike-free-tr-flyknit-xanh-la-3_9e101988-020f-4203-648f-060165216e8f.jpg" />
+    <Content Include="images\nike-free-tr-flyknit-xanh-la-4.jpg" />
+    <Content Include="images\nike-free-tr-flyknit-xanh-la-5.jpg" />
+    <Content Include="images\nike-free-tr-flyknit-xanh-la.jpg" />
+    <Content Include="images\nike-zoom-pegasus-31-den-logo-hong-1.png" />
+    <Content Include="images\nike-zoom-pegasus-31-den-logo-xanh-bien-1.png" />
+    <Content Include="images\nike-zoom-pegasus-31-den-logo-xanh-bien-2.png" />
+    <Content Include="images\nike-zoom-pegasus-31-den-logo-xanh-bien-3.png" />
+    <Content Include="images\nike-zoom-pegasus-31-den-logo-xanh-bien-4.png" />
+    <Content Include="images\nike-zoom-pegasus-31-den-logo-xanh-bien-5.png" />
+    <Content Include="images\nike-zoom-pegasus-31-den-logo-xanh-bien.png" />
+    <Content Include="images\nike-zoom-pegasus-31-xanh-bien-logi-den-1.jpg" />
+    <Content Include="images\nike-zoom-pegasus-31-xanh-bien-logi-den-2.jpg" />
+    <Content Include="images\nike-zoom-pegasus-31-xanh-bien-logi-den-3.jpg" />
+    <Content Include="images\nike-zoom-pegasus-31-xanh-bien-logi-den-4.png" />
+    <Content Include="images\nike-zoom-pegasus-31-xanh-bien-logi-den.jpg" />
+    <Content Include="images\nike-zoom-pegasus-31-xanh-den-hong-logo-trang-1.png" />
+    <Content Include="images\nike-zoom-pegasus-31-xanh-den-hong-logo-trang-2.png" />
+    <Content Include="images\nike-zoom-pegasus-31-xanh-den-hong-logo-trang-3.png" />
+    <Content Include="images\nike-zoom-pegasus-31-xanh-den-hong-logo-trang-4.png" />
+    <Content Include="images\nike-zoom-pegasus-31-xanh-den-hong-logo-trang-5.png" />
+    <Content Include="images\nike-zoom-pegasus-31-xanh-den-hong-logo-trang.png" />
+    <Content Include="images\nike-zoom-pegasus-33-den-trang-2.jpg" />
+    <Content Include="images\nike-zoom-pegasus-33-den-trang-3.jpg" />
+    <Content Include="images\nike-zoom-pegasus-33-den-trang-4.jpg" />
+    <Content Include="images\nike-zoom-pegasus-33-den-trang-5.jpg" />
+    <Content Include="images\nike-zoom-pegasus-33-den-trang-6.jpg" />
+    <Content Include="images\nike-zoom-pegasus-33-den-trang.jpg" />
+    <Content Include="images\nike-zoom-pegasus-33-hong-den-nu-1.jpg" />
+    <Content Include="images\nike-zoom-pegasus-33-hong-den-nu-2.jpg" />
+    <Content Include="images\nike-zoom-pegasus-33-hong-den-nu-3.jpg" />
+    <Content Include="images\nike-zoom-pegasus-33-hong-den-nu-4.jpg" />
+    <Content Include="images\nike-zoom-pegasus-33-hong-den-nu-5.jpg" />
+    <Content Include="images\nike-zoom-pegasus-33-hong-den-nu.jpg" />
+    <Content Include="images\nike-zoom-pegasus-33-xam-1.jpg" />
+    <Content Include="images\nike-zoom-pegasus-33-xam-2.jpg" />
+    <Content Include="images\nike-zoom-pegasus-33-xam-3.jpg" />
+    <Content Include="images\nike-zoom-pegasus-33-xam-4.jpg" />
+    <Content Include="images\nike-zoom-pegasus-33-xam-6.jpg" />
+    <Content Include="images\nike-zoom-pegasus-33-xam.jpg" />
+    <Content Include="images\p1.jpg" />
+    <Content Include="images\p2.jpg" />
+    <Content Include="images\p3.jpg" />
+    <Content Include="images\p4.jpg" />
+    <Content Include="images\p5.jpg" />
+    <Content Include="images\p6.jpg" />
+    <Content Include="images\p7.jpg" />
+    <Content Include="images\p8.jpg" />
+    <Content Include="images\p9.jpg" />
+    <Content Include="images\r1.jpg" />
+    <Content Include="images\r2.jpg" />
+    <Content Include="images\r3.jpg" />
+    <Content Include="images\r4.jpg" />
+    <Content Include="images\r5.jpg" />
+    <Content Include="images\r6.jpg" />
+    <Content Include="images\r7.jpg" />
+    <Content Include="images\r8.jpg" />
+    <Content Include="images\r9.jpg" />
+    <Content Include="images\right-arrow.png" />
+    <Content Include="images\s1.jpg" />
+    <Content Include="images\s2.jpg" />
+    <Content Include="images\s3.jpg" />
+    <Content Include="images\s4.jpg" />
+    <Content Include="images\s5.jpg" />
+    <Content Include="images\s6.jpg" />
+    <Content Include="images\s7.jpg" />
+    <Content Include="images\s8.jpg" />
+    <Content Include="images\s9.jpg" />
+    <Content Include="images\sdfdshyt.jpg" />
+    <Content Include="images\sdfsdgsdwettrj.jpg" />
+    <Content Include="images\SDFSDHF.jpg" />
+    <Content Include="images\sdgdfjgi.jpg" />
+    <Content Include="images\sdgtrdkfytrh.jpg" />
+    <Content Include="images\slip_on_11 %281%29.jpg" />
+    <Content Include="images\slip_on_11.jpg" />
+    <Content Include="images\slip_on_15_-_Copy.jpg" />
+    <Content Include="images\slip_on_2.jpg" />
+    <Content Include="images\ss1.jpg" />
+    <Content Include="images\ss2.jpg" />
+    <Content Include="images\ss3.jpg" />
+    <Content Include="images\ss4.jpg" />
+    <Content Include="images\ss5.jpg" />
+    <Content Include="images\ss6.jpg" />
+    <Content Include="images\ss7.jpg" />
+    <Content Include="images\ss8.jpg" />
+    <Content Include="images\ss9.jpg" />
+    <Content Include="images\star-.png" />
+    <Content Include="images\star.png" />
+    <Content Include="images\t1.jpg" />
+    <Content Include="images\t2.jpg" />
+    <Content Include="images\T2cDYEXJ4aXXXXXXXX_798100387_-_Copy_2.jpg" />
+    <Content Include="images\T2hXnGXFNXXXXXXXXX-165685842.jpg" />
+    <Content Include="images\T2iRvjXslaXXXXXXXX_53481776_-_Copy.jpg" />
+    <Content Include="images\T2y.2jXphaXXXXXXXX_53481776_-_Copy.jpg" />
+    <Content Include="images\t3.jpg" />
+    <Content Include="images\t4.jpg" />
+    <Content Include="images\t5.jpg" />
+    <Content Include="images\t6.jpg" />
+    <Content Include="images\t7.jpg" />
+    <Content Include="images\t8.jpg" />
+    <Content Include="images\t9.jpg" />
+    <Content Include="images\TB1.wW.HpXXXXataXXXXXXXXXXX_0-item_pic.jpg" />
+    <Content Include="images\TB23vcVbVXXXXcgXpXXXXXXXXXX_837670555.jpg" />
+    <Content Include="images\TB23wS.bVXXXXaTXXXXXXXXXXXX_2227366049_1.jpg" />
+    <Content Include="images\TB26hDrbXXXXXcHXXXXXXXXXXXX-1777766051.jpg" />
+    <Content Include="images\TB2dEBrcpXXXXb9XXXXXXXXXXXX_908828455.jpg" />
+    <Content Include="images\TB2fBYfbVXXXXarXXXXXXXXXXXX_2227366049.jpg" />
+    <Content Include="images\TB2FLWqcXXXXXcuXpXXXXXXXXXX-1021626914_1.jpg" />
+    <Content Include="images\TB2FoTOcXXXXXcbXXXXXXXXXXXX_2207317944 %281%29.jpg" />
+    <Content Include="images\TB2FoTOcXXXXXcbXXXXXXXXXXXX_2207317944.jpg" />
+    <Content Include="images\TB2iC21bVXXXXadXXXXXXXXXXXX_13072801.jpg" />
+    <Content Include="images\TB2Lgc5cXXXXXXIXpXXXXXXXXXX_2226728561.jpg" />
+    <Content Include="images\TB2ozrOcXXXXXaNXpXXXXXXXXXX_1051516327.jpg" />
+    <Content Include="images\TB2Qzg9cXXXXXaHXXXXXXXXXXXX_2226728561_1 %281%29.jpg" />
+    <Content Include="images\TB2Qzg9cXXXXXaHXXXXXXXXXXXX_2226728561_1.jpg" />
+    <Content Include="images\TB2sqWIbVXXXXbRXpXXXXXXXXXX_2227366049_1 %281%29.jpg" />
+    <Content Include="images\TB2sqWIbVXXXXbRXpXXXXXXXXXX_2227366049_1.jpg" />
+    <Content Include="images\TB2SXnybVXXXXXFXXXXXXXXXXXX_1027506888 %281%29.jpg" />
+    <Content Include="images\TB2SXnybVXXXXXFXXXXXXXXXXXX_1027506888.jpg" />
+    <Content Include="images\TB2tiVYcXXXXXXOXXXXXXXXXXXX_1755325436.jpg" />
+    <Content Include="images\TB2UbbpapXXXXcsXXXXXXXXXXXX-646670383.jpg" />
+    <Content Include="images\TB2vcHPbVXXXXbYXpXXXXXXXXXX_13072801_1.jpg" />
+    <Content Include="images\TB2vWrxbVXXXXXUXXXXXXXXXXXX_1027506888_1.jpg" />
+    <Content Include="images\TB2WkAXbVXXXXaqXpXXXXXXXXXX_1938932782_1.jpg" />
+    <Content Include="images\TB2X.aBdpXXXXXRXpXXXXXXXXXX-1789978159_1 %281%29.png" />
+    <Content Include="images\TB2X.aBdpXXXXXRXpXXXXXXXXXX-1789978159_1.png" />
+    <Content Include="images\w1.jpg" />
+    <Content Include="images\w2.jpg" />
+    <Content Include="images\w3.jpg" />
+    <Content Include="images\w4.jpg" />
+    <Content Include="images\w5.jpg" />
+    <Content Include="images\w6.jpg" />
+    <Content Include="images\w7.jpg" />
+    <Content Include="images\w8.jpg" />
+    <Content Include="images\w9.jpg" />
+    <Content Include="Scripts\ai.0.15.0-build58334.js" />
+    <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="Scripts\bootstrap-3.1.1.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Models\DataClasses1.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataClasses1.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\easyResponsiveTabs.js" />
+    <Content Include="Scripts\imagezoom.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.countdown.js" />
+    <Content Include="Scripts\jquery.flexisel.js" />
+    <Content Include="Scripts\jquery.flexslider.js" />
+    <Content Include="Scripts\jquery.magnific-popup.js" />
+    <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jquery.wmuSlider.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\script.js" />
+    <Content Include="Scripts\simpleCart.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_LayoutUser.cshtml" />
+    <Content Include="Views\NguoiDungLayout\Index.cshtml" />
+    <Content Include="Views\NguoiDungLayout\ThuongHieu.cshtml" />
+    <Content Include="Views\NguoiDungLayout\LoaiGiay.cshtml" />
+    <Content Include="Views\NguoiDungLayout\ChonGiay.cshtml" />
+    <Content Include="Views\NguoiDungLayout\ChonLoaiGiay.cshtml" />
+    <Content Include="Views\NguoiDungLayout\LaySanPhamTheoLoaiGiay.cshtml" />
+    <Content Include="Views\NguoiDungLayout\Details.cshtml" />
+    <Content Include="Views\NguoiDungLayout\LayHinhSanPham.cshtml" />
+    <Content Include="Views\NguoiDungLayout\DetailsImage.cshtml" />
+    <Content Include="Views\NguoiDungLayout\SPTheoThuongHieu.cshtml" />
+    <Content Include="Views\NguoiDungLayout\SanPhamTheoPhongCach.cshtml" />
+    <Content Include="Views\NguoiDungLayout\GetTenThuongHien.cshtml" />
+    <Content Include="Views\NguoiDungLayout\CachDoSize.cshtml" />
+    <Content Include="Views\GioHang\GioHang.cshtml" />
+    <Content Include="Views\GioHang\ThongTinGioHang_Partialview.cshtml" />
+    <Content Include="Views\TaiKhoan\AccountDialog.cshtml" />
+    <Content Include="Views\TaiKhoan\MyAccount.cshtml" />
+    <Content Include="Views\NguoiDungLayout\GetSanPhamMoi.cshtml" />
+    <Content Include="Views\NguoiDungLayout\GetSanPhamLienQuan.cshtml" />
+    <Content Include="Views\NguoiDungLayout\TimSanPham.cshtml" />
+    <Content Include="Views\NguoiDungLayout\GetSizeSanPham.cshtml" />
+    <Content Include="Views\GioHang\DatHang.cshtml" />
+    <Content Include="Views\GioHang\XacNhanGioHang.cshtml" />
+    <Content Include="Views\TaiKhoan\DoiMatKhau.cshtml" />
+    <Content Include="Views\NguoiDungLayout\GetReviews.cshtml" />
+    <Content Include="Views\NguoiDungLayout\CreateTabs.cshtml" />
+    <Content Include="Views\Admin\AdminLayout.cshtml" />
+    <Content Include="Views\QuanLyKhachHang\ChiTiet.cshtml" />
+    <Content Include="Views\QuanLyKhachHang\Index.cshtml" />
+    <Content Include="Views\QuanLyKhachHang\Xoa.cshtml" />
+    <Content Include="Views\QuanLySanPham\ChiTiet.cshtml" />
+    <Content Include="Views\QuanLySanPham\Index.cshtml" />
+    <Content Include="Views\QuanLySanPham\Login.cshtml" />
+    <Content Include="Views\QuanLySanPham\Sua.cshtml" />
+    <Content Include="Views\QuanLySanPham\ThemMoi.cshtml" />
+    <Content Include="Views\QuanLySanPham\Xoa.cshtml" />
+    <Content Include="Views\QuanLyThuongHieu\Index.cshtml" />
+    <Content Include="Views\QuanLyThuongHieu\Sua.cshtml" />
+    <Content Include="Views\QuanLyThuongHieu\ThemMoiTH.cshtml" />
+    <Content Include="Views\QuanLyThuongHieu\Xoa.cshtml" />
+    <Content Include="Views\NguoiDungLayout\LienHe.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\assets\" />
+    <Folder Include="Content\font-awesome-4.6.3\" />
+    <Folder Include="Content\TemplateAdmin\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Models\DataClasses1.dbml.layout">
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1692</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:1692/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

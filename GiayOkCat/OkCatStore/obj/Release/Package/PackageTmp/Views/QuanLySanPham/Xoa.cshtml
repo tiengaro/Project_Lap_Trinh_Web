@@ -1,0 +1,77 @@
+﻿@model OkCatStore.Models.SANPHAM
+
+@{
+    ViewBag.Title = "Xoa";
+    Layout = "~/Views/Admin/AdminLayout.cshtml";
+}
+
+<h2>XÁC NHẬN THÔNG TIN SẢN PHẨM CẦN XÓA</h2>
+
+<h3>Bạn quyết định xóa sản phẩm này</h3>
+<h3>@ViewBag.Loi</h3>
+<div>
+  
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           TÊN SẢN PHẨM
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TENSP)
+        </dd>
+
+        <dt>
+
+            ẢNH BÌA
+        </dt>
+
+        <dd style="width:150px">
+
+            @Html.Action("LayHinhSanPham", "NguoiDungLayout", new { MASP = Model.MASP, count = 1 })
+        </dd>
+
+
+        <dt>
+            GIÁ BÁN
+        </dt>
+
+        <dd>
+            @String.Format("{0:0,0}", Model.GIABAN) VNĐ
+        </dd>
+
+        <dt>
+            NAGYF CẬP NHẬT
+        </dt>
+
+        <dd>
+            @String.Format("{0:dd/MM/yyyy}", Model.NGAYCAPNHAT)
+        </dd>
+
+        <dt>
+            THƯƠNG HIỆU
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.THUONGHIEU.TENTH)
+        </dd>
+
+        <dt>
+          PHONG CÁCH
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PHONGCACH.TENPC)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="XÓA" class="btn btn-default" /> |
+            @Html.ActionLink("QUẢN LÝ SẢN PHẨM", "Index")
+        </div>
+    }
+</div>

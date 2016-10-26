@@ -1,0 +1,29 @@
+﻿@model IEnumerable<OkCatStore.Models.PHONGCACH>
+
+@{
+    var i = 1;
+    foreach (var item in Model)
+    {
+        string mMaPC = item.MAPC + "";
+        string id = "#" + mMaPC;
+        string idTab = mMaPC + "-tab";
+
+        if (i == 1)
+        {
+            <li role="presentation" class="active">
+                <a href=@id id=@idTab role="tab" data-toggle="tab" aria-controls= @mMaPC>
+                    @item.TENPC
+                </a>
+            </li>        
+        }
+        else
+        {
+            <li role="presentation">
+                <a href= @id role="tab" id=@idTab data-toggle="tab" aria-controls= @mMaPC>
+                @item.TENPC
+                </a>
+            </li>
+        }
+        i++;
+    }
+}

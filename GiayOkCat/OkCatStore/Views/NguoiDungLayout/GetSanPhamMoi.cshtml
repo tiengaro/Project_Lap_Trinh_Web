@@ -1,0 +1,34 @@
+﻿@model IEnumerable<OkCatStore.Models.SANPHAM>
+
+<div class="new-products">
+    <div class="container">
+        <h3>Sản phẩm mới</h3>
+        <div class="agileinfo_new_products_grids">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3 agileinfo_new_products_grid">
+                    <div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
+                        <div class="hs-wrapper hs-wrapper1">
+                            @Html.Action("LayHinhSanPham", "NguoiDungLayout", new { MASP = item.MASP, count = 100 })
+                            <div class="w3_hs_bottom w3_hs_bottom_sub">
+                                <ul>
+                                    <li>
+                                        <a href="@Url.Action("Details", "NguoiDungLayout", new { id = item.MASP } )"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <h5><a href="@Url.Action("Details", "NguoiDungLayout", new { id = item.MASP } )">@item.TENSP</a></h5>
+                        <div class="simpleCart_shelfItem">
+                            <p><i class="item_price">@String.Format("{0:0,0}", @item.GIABAN) VNĐ</i></p>
+                            <p><a class="item_add" href="@Url.Action("ThemGioHang","GioHang", new { @iMaSP = item.MASP, @strURL = Request.Url.ToString() })">Thêm vào giỏ hàng</a></p>
+                        </div>
+                    </div>
+                </div>
+
+            }
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
+

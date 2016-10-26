@@ -1,0 +1,58 @@
+﻿@model IEnumerable<OkCatStore.Models.KHACHHANG>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Admin/AdminLayout.cshtml";
+}
+
+<h2>QUẢN LÝ KHÁCH HÀNG</h2>
+
+@*<p>
+    @Html.ActionLink("THÊM MỚI", "ThemMoiKH")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            EMAIL
+        </th>
+        <th>
+            MẬT KHẨU
+        </th>
+        <th>
+            HỌ TÊN
+        </th>
+        <th>
+            ĐỊA CHỈ
+        </th>
+        <th>
+            SỐ ĐT
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMAILKH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MATKHAU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HOTENKH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DIACHIKH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SODTKH)
+        </td>
+        <td>
+           @*@Html.ActionLink("Sửa", "Sua", new { id = item.MAKH }) |*@
+        @Html.ActionLink("Chi tiết", "ChiTiet", new { id = item.MAKH }) |
+        @Html.ActionLink("Xóa", "Xoa", new { id = item.MAKH })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,33 @@
+﻿@model IEnumerable<OkCatStore.Models.THUONGHIEU>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Admin/AdminLayout.cshtml";
+}
+
+<h2>QUẢN LÝ THƯƠNG HIỆU</h2>
+
+<p>
+    @Html.ActionLink("THÊM MỚI", "ThemMoiTH")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            TÊN THƯƠNG HIỆU
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TENTH)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Sua", new { id = item.MATH }) |
+            @Html.ActionLink("Xóa", "Xoa", new { id = item.MATH })
+        </td>
+    </tr>
+}
+
+</table>

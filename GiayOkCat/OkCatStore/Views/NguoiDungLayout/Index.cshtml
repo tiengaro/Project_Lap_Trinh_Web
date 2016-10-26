@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+
+<div class="banner-bottom">
+    <div class="container">
+        
+        <div class="banner-bottom">
+            <div class="col-md-10 wthree_banner_bottom_left">
+                <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+                    <ul id="myTab" class="nav nav-tabs" role="tablist">
+                        @Html.Action("ChonLoaiGiay", "NguoiDungLayout")
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+
+                        @{
+                            int i = 1;
+                            foreach (var mPhongCach in Model)
+                            {
+                                string mMaPC = mPhongCach.MAPC + "";
+                                string id = "#" + mMaPC;
+                                string idTab = mMaPC + "-tab";
+                                if (i == 1)
+                                {
+                                    <div role="tabpanel" class="tab-pane fade active in" id=@mMaPC aria-labelledby=@idTab>
+                                        <div class="agile_ecommerce_tabs">
+                                            @Html.Action("LaySanPhamTheoLoaiGiay", "NguoiDungLayout", new { MAPC = mMaPC, count = 6 })
+                                            <div class="clearfix"> </div>
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div role="tabpanel" class="tab-pane fade" id=@mMaPC aria-labelledby=@idTab>
+                                        <div class="agile_ecommerce_tabs">
+                                            @Html.Action("LaySanPhamTheoLoaiGiay", "NguoiDungLayout", new { MAPC = mMaPC, count = 8 })
+                                            <div class="clearfix"> </div>
+                                        </div>
+                                    </div>
+                                }
+                                i++;
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 wthree_banner_bottom_right">
+                <div id="cont_60194d6d9785402f7c5eac176530f638">
+                <script type="text/javascript" async src="https://www.theweather.com/wid_loader/60194d6d9785402f7c5eac176530f638"></script></div>
+                <div id="widgetmain" style="text-align:left;overflow-y:auto;overflow-x:hidden;width:250px;background-color:#transparent; border:1px solid #333333;"><div id="rsswidget" style="height:440px;"><iframe id="rssOutput" src="http://us1.rssfeedwidget.com/getrss.php?time=1477106067787&amp;x=http%3A%2F%2Fkenh14.vn%2Ffashion.rss&amp;w=250&amp;h=440&amp;bc=333333&amp;bw=1&amp;bgc=transparent&amp;m=20&amp;it=true&amp;t=(default)&amp;tc=333333&amp;ts=15&amp;tb=transparent&amp;il=true&amp;lc=0000FF&amp;ls=14&amp;lb=false&amp;id=true&amp;dc=333333&amp;ds=14&amp;idt=true&amp;dtc=284F2D&amp;dts=12" border="0" frameborder="no" marginwidth="0" marginheight="0" vspace="0" hspace="0" style="border:0; padding:0; margin:0; width:250px; height:440px;">Reading RSS Feed ...</iframe></div><div id="widgetbottom" style="text-align:right;margin-bottom:0;border-top:1px solid #333333;"><span style="font-size:70%"><a href="http://www.rssfeedwidget.com">rss feed widget</a>&nbsp;</span><br></div></div>
+            </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+@*<!-- //special-deals -->
+    <!-- new-products -->*@
+@Html.Action("GetSanPhamMoi", "NguoiDungLayout")
+<!-- //new-products -->

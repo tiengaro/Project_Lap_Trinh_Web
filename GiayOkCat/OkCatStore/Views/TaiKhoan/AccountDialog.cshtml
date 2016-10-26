@@ -1,0 +1,120 @@
+﻿
+
+@if (ViewBag.KhachHang == null)
+{
+<div class="w3l_login">
+    <div class="modal fade" id="myModal88" tabindex="-1" role="dialog" aria-labelledby="myModal88"
+         aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        Hãy đăng nhập ngay bây giờ!
+                    </h4>
+                </div>
+                <div class="modal-body modal-body-sub">
+                    <div class="row">
+                        <div class="col-md-8 modal_body_left modal_body_left1" style="border-right: 1px dotted #C2C2C2;padding-right:3em;">
+                            <div class="sap_tabs">
+                                <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+                                    <ul>
+                                        <li class="resp-tab-item" aria-controls="tab_item-0"><span>Đăng nhập</span></li>
+                                        <li class="resp-tab-item" aria-controls="tab_item-1"><span>Đăng ký</span></li>
+                                    </ul>
+                                    <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
+                                        <div class="facts">
+                                            <div class="register">
+                                                <form action="@Url.Action("DangNhap", "TaiKhoan", new { @strURL = Request.Url.ToString() })" method="post">
+                                                    <input name="Email" placeholder="Nhập địa chỉ Email" type="text" required="">
+                                                    <input name="Password" placeholder="Nhập mật khẩu" type="password" required="">
+                                                    <div class="sign-up">
+                                                        <input type="submit" value="Đăng nhập" />
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tab-2 resp-tab-content" aria-labelledby="tab_item-1">
+                                        <div class="facts">
+                                            <div class="register">
+                                                @Html.ValidationSummary(true)
+                                                <form action="@Url.Action("DangKy", "TaiKhoan", new { @strURL = Request.Url.ToString() })" method="post">
+
+                                                    <input placeholder="Email" name="Email" type="email" required="" />
+
+                                                    <input placeholder="Mật Khẩu" name="Password" type="password" required="" />
+
+                                                    <p></p>
+                                                    <input placeholder="Họ Tên" name="Name" type="text" required="" />
+                                                    <p></p>
+                                                    <input placeholder="Địa Chỉ" name="Address" type="text" required="" />
+                                                    <p></p>
+                                                    <input placeholder="Điện Thoại" name="Phone" type="text" required="" />
+                                                    <div class="sign-up">
+                                                        <input type="submit" value="Tạo Tài Khoản" />
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <script src="~/Scripts/easyResponsiveTabs.js" type="text/javascript"></script>
+                            <script type="text/javascript">
+								$(document).ready(function () {
+									$('#horizontalTab').easyResponsiveTabs({
+										type: 'default', //Types: default, vertical, accordion
+										width: 'auto', //auto or any width like 600px
+										fit: true   // 100% fit in a container
+									});
+								});
+                            </script>
+                            <div id="OR" class="hidden-xs">
+                                OR
+                            </div>
+                        </div>
+                        <div class="col-md-4 modal_body_right modal_body_right1">
+                            <div class="row text-center sign-with">
+                                <div class="col-md-12">
+                                    <h3 class="other-nw">
+                                        Đăng nhập bằng
+                                    </h3>
+                                </div>
+                                <div class="col-md-12">
+                                    <ul class="social">
+                                        <li class="social_facebook"><a href="@Url.Action("LoginFacebook","TaiKhoan")" class="entypo-facebook"></a></li>
+                                        <li class="social_dribbble"><a href="#" class="entypo-dribbble"></a></li>
+                                        <li class="social_twitter"><a href="#" class="entypo-twitter"></a></li>
+                                        <li class="social_behance"><a href="#" class="entypo-behance"></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+            $('#myModal88').modal('show');
+        </script>
+    <a href="#" data-toggle="modal" data-target="#myModal88" style="align-items:center"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+</div>
+
+}
+else
+{
+    <div class="w3l_login">
+        <div>
+            <a href="@Url.Action("MyAccount","TaiKhoan", new { id = ViewBag.KhachHang.MAKH})"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+            <p style="align-content:center">@ViewBag.KhachHang.HOTENKH</p>
+        </div>
+
+    </div>
+
+}
+

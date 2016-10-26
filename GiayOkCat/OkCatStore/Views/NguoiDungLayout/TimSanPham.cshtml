@@ -1,0 +1,40 @@
+﻿@model IEnumerable<OkCatStore.Models.SANPHAM>
+@{
+    ViewBag.Title = "TimSanPham";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<div class="breadcrumb_dress">
+    <div class="container">
+        <ul>
+            <li><a href="@Url.Action("Index","NguoiDungLayout")"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Trang chủ</a> <i>/</i></li>
+            <li>Tìm Kiếm</li>
+        </ul>
+    </div>
+</div>
+
+<fieldset>
+    <legend>Kết quả tìm kiếm:</legend>
+
+    @foreach (var item in Model)
+    {
+        string id = "#" + item.MASP;
+        <div class="col-md-3 agile_ecommerce_tab_left">
+            <div class="hs-wrapper">
+                @Html.Action("LayHinhSanPham", "NguoiDungLayout", new { MASP = item.MASP, count = 100 })
+                <div class="w3_hs_bottom">
+                    <ul>
+                        <li>
+                            <a href="@Url.Action("Details", "NguoiDungLayout", new { id = item.MASP } )"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <h5><a href="@Url.Action("Details", "NguoiDungLayout", new { id = item.MASP } )">@item.TENSP</a></h5>
+            <div class="simpleCart_shelfItem">
+                <p><i class="item_price">@String.Format("{0:0,0}", @item.GIABAN) VNĐ</i></p>
+                <p><a class="item_add" href="@Url.Action("ThemGioHang","GioHang", new { @iMaSP = item.MASP, @strURL = Request.Url.ToString() })">Thêm vào giỏ hàng</a></p>
+            </div>
+        </div>
+    }
+</fieldset>
