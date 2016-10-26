@@ -142,6 +142,14 @@ namespace OkCatStore.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult LienHe(LIENHE lh, FormCollection coll)
+        {
+            data.LIENHEs.InsertOnSubmit(lh);
+            data.SubmitChanges();
+            ViewBag.ThongBao = "OkCatStore đã nhận được thông tin của bạn. Chúng tôi sẽ phản hồi trong thời gian sớm nhất.";
+            return View();
+        }
         public ActionResult GetReviews(int id)
         {
             var mReviews = data.REVIEWs.Where(n => n.MASP == id).OrderByDescending(n => n.time);

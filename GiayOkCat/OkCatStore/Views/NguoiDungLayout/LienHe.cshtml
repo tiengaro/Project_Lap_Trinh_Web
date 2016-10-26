@@ -34,70 +34,67 @@
                 </div>
                 @using (Html.BeginForm())
                 {
-                    @Html.AntiForgeryToken()
-
                     <div class="form-horizontal">
+                        <div class="small" style="margin-left:180px;font-style:italic;color:darkblue;">@ViewBag.ThongBao</div>
+                        <div class="small" style="margin-left:180px;font-style:italic;color:#FF0000;">(*) Thông tin bắt buộc</div>
                         <hr />
-                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                         <div class="form-group">
-                            @Html.LabelFor(model => model.TENSP, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.TENSP, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.TENSP, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            HINHANH
-                            <div class="col-md-10">
-                                <input type="file" name="file">
-                                @*Thông báo trùng*@
-                                @ViewBag.ThongBao
+                            <label class="control-label col-md-4"> Họ tên (*) </label>
+                            <div class="col-md-8">
+                                <div class="controls">
+                                    <input type="text" name="HOTENLH" id="HoTen" placeholder="Họ tên người liên hệ" class="form-control" value="" required="">
+                                </div>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label col-md-2"> Họ tên (*) </label>
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.HOTENLH, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.HOTENLH, "", new { @class = "text-danger" })
+                            <label class="control-label col-md-4">Công ty </label>
+                            <div class="col-md-8">
+                                <div class="controls">
+                                    <input type="text" name="CONGTYLH" id="CongTy" placeholder="Công ty" class="form-control" value="">
+                                </div>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label col-md-2">Công ty </label>
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.CONGTYLH, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.CONGTYLH, "", new { @class = "text-danger" })
+                            <label class="control-label col-md-4">Điện thoại (*) </label>
+                            <div class="col-md-8">
+                                <div class="controls">
+                                    <input type="number" name="DIENTHOAILH" id="DienThoai" placeholder="Điện thoại liên hệ" class="form-control" value="" required="">
+                                </div>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label col-md-2">Điện thoại (*) </label>
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.DIENTHOAILH, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.DIENTHOAILH, "", new { @class = "text-danger" })
+                            <label class="control-label col-md-4">Email (*) </label>
+                            <div class="col-md-8">
+                                <div class="controls">
+                                    <input type="text" name="EMAILLH" id="Email" placeholder="Email liên hệ" class="form-control" value="" required="">
+                                </div>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label col-md-2">Email (*) </label>
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.EMAILLH, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.EMAILLH, "", new { @class = "text-danger" })
+                            <label class="control-label col-md-4">Liên hệ về (*) </label>
+                            <div class="col-md-8">
+                                <div class="controls">
+                                    <input type="text" name="VANDELH" id="TieuDe" placeholder="Liên hệ về vấn đề gì?" class="form-control" value="" required="">
+                                </div>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label col-md-2">Liên hệ về (*) </label>
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.VANDELH, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.VANDELH, "", new { @class = "text-danger" })
+                            <label class="control-label col-md-4">Nội dung liên hệ (*) </label>
+                            <div class="col-md-8">
+                                <div class="controls">
+                                    <textarea rows="6" class="form-control" name="NOIDUNG" id="NoiDungLienHe" required=""></textarea>
+                                </div>
                             </div>
                         </div>
-
                         <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                                <input type="submit" value="THÊM MỚI" class="btn btn-default" />
+                            <label class="control-label col-md-4"></label>
+                            <div class="col-md-8">
+                                <button type="submit" class="btn btn-warning">Gửi thông tin liên hệ</button>
                             </div>
                         </div>
                     </div>
