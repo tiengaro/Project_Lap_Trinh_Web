@@ -94,7 +94,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/18/2016 11:55:15</publishTime>
     </File>
     <File Include="bin/OkCatStore.dll">
-      <publishTime>10/26/2016 05:58:56</publishTime>
+      <publishTime>10/26/2016 11:03:40</publishTime>
     </File>
     <File Include="bin/Owin.dll">
       <publishTime>09/18/2016 11:55:33</publishTime>
@@ -1642,7 +1642,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/18/2016 12:04:13</publishTime>
     </File>
     <File Include="Models/DataClasses1.dbml">
-      <publishTime>10/22/2016 10:57:20</publishTime>
+      <publishTime>10/26/2016 07:46:09</publishTime>
     </File>
     <File Include="packages.config">
       <publishTime>10/23/2016 19:51:57</publishTime>
@@ -1845,6 +1845,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/NguoiDungLayout/LaySanPhamTheoLoaiGiay.cshtml">
       <publishTime>10/22/2016 10:28:30</publishTime>
     </File>
+    <File Include="Views/NguoiDungLayout/LienHe.cshtml">
+      <publishTime>10/26/2016 11:00:15</publishTime>
+    </File>
     <File Include="Views/NguoiDungLayout/LoaiGiay.cshtml">
       <publishTime>09/28/2016 21:52:33</publishTime>
     </File>
@@ -1909,7 +1912,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/18/2016 11:55:16</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutUser.cshtml">
-      <publishTime>10/26/2016 05:58:03</publishTime>
+      <publishTime>10/26/2016 11:01:42</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
       <publishTime>09/18/2016 11:55:17</publishTime>
@@ -1930,7 +1933,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/18/2016 11:54:47</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/24/2016 20:39:35</publishTime>
+      <publishTime>10/26/2016 11:03:41</publishTime>
     </File>
   </ItemGroup>
 </Project>

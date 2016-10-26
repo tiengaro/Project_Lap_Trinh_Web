@@ -144,4 +144,15 @@
       <Association Name="THUONGHIEU_SANPHAM" Member="SANPHAMs" ThisKey="MATH" OtherKey="MATH" Type="SANPHAM" />
     </Type>
   </Table>
+  <Table Name="dbo.LIENHE" Member="LIENHEs">
+    <Type Name="LIENHE">
+      <Column Name="MALH" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="HOTENLH" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="CONGTYLH" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DIENTHOAILH" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="EMAILLH" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VANDELH" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="NOIDUNG" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
 </Database>
