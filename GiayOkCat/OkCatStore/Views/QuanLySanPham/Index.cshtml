@@ -31,7 +31,7 @@ else
         <th width="200">
             TÊN SẢN PHẨM
         </th>
-        <th width="120dp">
+        <th width="100dp">
         HÌNH ẢNH
         </th>
         <th width="100">
@@ -54,7 +54,7 @@ else
         <td>
             @Html.DisplayFor(modelItem => item.TENSP)
         </td>
-        <td>
+        <td width="100dp">
             @Html.Action("LayHinhSanPham", "NguoiDungLayout", new { MASP = item.MASP, count = 1 })
         </td>
         <td>

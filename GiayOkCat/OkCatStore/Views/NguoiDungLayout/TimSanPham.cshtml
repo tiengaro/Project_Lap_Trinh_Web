@@ -14,12 +14,12 @@
 </div>
 
 <fieldset>
-    <legend>Kết quả tìm kiếm:</legend>
+    <legend>Kết quả tìm kiếm: @ViewBag.tuKhoa</legend>
 
     @foreach (var item in Model)
     {
         string id = "#" + item.MASP;
-        <div class="col-md-3 agile_ecommerce_tab_left">
+        <div class="col-md-4 agile_ecommerce_tab_left">
             <div class="hs-wrapper">
                 @Html.Action("LayHinhSanPham", "NguoiDungLayout", new { MASP = item.MASP, count = 100 })
                 <div class="w3_hs_bottom">

@@ -835,6 +835,11 @@
     <Content Include="Views\QuanLyThuongHieu\ThemMoiTH.cshtml" />
     <Content Include="Views\QuanLyThuongHieu\Xoa.cshtml" />
     <Content Include="Views\NguoiDungLayout\LienHe.cshtml" />
+    <Content Include="Views\QuanLySanPham\HinhAnh.cshtml" />
+    <Content Include="Views\QuanLySanPham\SuaHinh.cshtml" />
+    <Content Include="Views\QuanLySanPham\XoaHinh.cshtml" />
+    <Content Include="Views\QuanLySanPham\ThemHinh.cshtml" />
+    <Content Include="Views\QuanLySanPham\ChiTietHinh.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

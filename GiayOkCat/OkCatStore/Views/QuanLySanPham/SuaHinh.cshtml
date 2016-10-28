@@ -1,0 +1,44 @@
+﻿@model OkCatStore.Models.HINHANH
+@{
+    ViewBag.Title = "SuaHinh";
+    Layout = "~/Views/Admin/AdminLayout.cshtml";
+}
+
+<h2>Sửa Hình Ảnh</h2>
+
+@using (Html.BeginForm("SuaHinh",
+                                                "QuanLySanPham",
+                                                FormMethod.Post,
+                                                new { enctype = "multipart/form-data" }))
+{
+    <div class="form-horizontal">
+        <hr />
+        <div class="form-group">
+            <div class="control-label col-md-2">
+                Ảnh Hiện Tại
+            </div>
+            <div class="col-md-10">
+                <img width="150px" src="~/images/@Model.URLHINH" alt="" class="img-responsive" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="control-label col-md-2">
+                Chọn ảnh mới
+            </div>
+            <div class="col-md-10">
+                <input type="file" name="file">
+                @*thong bao trung*@
+                @ViewBag.Thongbao
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="LƯU" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<div>
+    @Html.ActionLink("Xóa", "XoaHinh", new { id = Model.MAHINH }) |
+    @Html.ActionLink("QUAY LẠI", "HinhAnh", new { id = ViewBag.MaSP })
+</div>

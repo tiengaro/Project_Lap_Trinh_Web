@@ -25,9 +25,12 @@
             </div>
         </div>
         <div class="form-group">
-            HINHANH
+            <div class="control-label col-md-2">
+                HINHANH
+            </div>
+            
             <div class="col-md-10">
-                <input type="file" name="file">
+                <input type="file" class="multiple" name="files" multiple required="" />
                 @*Thông báo trùng*@
                 @ViewBag.ThongBao
             </div>
@@ -41,13 +44,13 @@
             </div>
         </div>
 
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.NGAYCAPNHAT, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <input type="date" name="NGAYCAPNHAT" />
                 @Html.ValidationMessageFor(model => model.NGAYCAPNHAT)
             </div>
-        </div>
+        </div>*@
 
         <div class="form-group">
             @Html.LabelFor(model => model.MATH, htmlAttributes: new { @class = "control-label col-md-2" })

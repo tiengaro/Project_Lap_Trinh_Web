@@ -5,7 +5,7 @@
     Layout = "~/Views/Admin/AdminLayout.cshtml";
 }
 
-<h2>THÔNG TIN CHI TIẾT ẢN PHẨM</h2>
+<h2>THÔNG TIN CHI TIẾT SẢN PHẨM</h2>
 
 <div>
 
@@ -26,7 +26,7 @@
 
         <dd style="width:150px">
 
-           @Html.Action("LayHinhSanPham","NguoiDungLayout",new { MASP=Model.MASP,count=1})
+            <img src="~/images/@ViewBag.URLHinh" alt="" class="img-responsive" />
         </dd>
 
 
@@ -65,6 +65,7 @@
     </dl>
 </div>
 <p>
+@Html.ActionLink("THÔNG TIN HÌNH SẢN PHẨM", "ChiTietHinh", new { id = Model.MASP }) |
 @Html.ActionLink("ĐIỀU CHỈNH", "Sua", new { id = Model.MASP }) |
 @Html.ActionLink("QUẢN LÝ SẢN PHẨM", "Index")
 </p>

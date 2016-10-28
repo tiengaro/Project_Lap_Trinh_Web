@@ -94,7 +94,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/18/2016 11:55:15</publishTime>
     </File>
     <File Include="bin/OkCatStore.dll">
-      <publishTime>10/26/2016 11:03:40</publishTime>
+      <publishTime>10/26/2016 14:01:49</publishTime>
     </File>
     <File Include="bin/Owin.dll">
       <publishTime>09/18/2016 11:55:33</publishTime>
@@ -1816,7 +1816,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/22/2016 12:49:37</publishTime>
     </File>
     <File Include="Views/NguoiDungLayout/Details.cshtml">
-      <publishTime>10/22/2016 12:51:36</publishTime>
+      <publishTime>10/26/2016 13:58:42</publishTime>
     </File>
     <File Include="Views/NguoiDungLayout/DetailsImage.cshtml">
       <publishTime>09/28/2016 20:12:06</publishTime>
@@ -1840,13 +1840,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/22/2016 10:28:31</publishTime>
     </File>
     <File Include="Views/NguoiDungLayout/LayHinhSanPham.cshtml">
-      <publishTime>09/28/2016 20:25:08</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Views/NguoiDungLayout/LaySanPhamTheoLoaiGiay.cshtml">
       <publishTime>10/22/2016 10:28:30</publishTime>
     </File>
     <File Include="Views/NguoiDungLayout/LienHe.cshtml">
-      <publishTime>10/26/2016 11:00:15</publishTime>
+      <publishTime>10/26/2016 13:23:09</publishTime>
     </File>
     <File Include="Views/NguoiDungLayout/LoaiGiay.cshtml">
       <publishTime>09/28/2016 21:52:33</publishTime>
@@ -1876,7 +1876,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/23/2016 19:46:47</publishTime>
     </File>
     <File Include="Views/QuanLySanPham/Index.cshtml">
-      <publishTime>10/23/2016 19:46:48</publishTime>
+      <publishTime>10/26/2016 14:10:48</publishTime>
     </File>
     <File Include="Views/QuanLySanPham/Login.cshtml">
       <publishTime>10/23/2016 19:46:49</publishTime>
@@ -1912,7 +1912,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/18/2016 11:55:16</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutUser.cshtml">
-      <publishTime>10/26/2016 11:01:42</publishTime>
+      <publishTime>10/26/2016 13:32:34</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
       <publishTime>09/18/2016 11:55:17</publishTime>

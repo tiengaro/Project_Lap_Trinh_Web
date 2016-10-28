@@ -130,10 +130,6 @@ namespace OkCatStore.Controllers
         [HttpPost]
         public ActionResult DatHang(FormCollection coll, string radio)
         {
-            if(radio == "Thanh toán trực tuyến")
-            {
-                return RedirectToAction("Onepay", "GioHang");
-            }
             DONDATHANG ddh = new DONDATHANG();
             KHACHHANG kh = (KHACHHANG)Session["TaiKhoan"];
             List<GioHang> gh = LayGioHang();
@@ -144,10 +140,36 @@ namespace OkCatStore.Controllers
             ddh.NGAYGIAO = DateTime.Parse(ngayGiao);
             ddh.TRANGTHAIGIAOHANG = false;
             ddh.TRANGTHAITHANHTOAN = false;
+            ddh.TONGTIENDAT = (decimal)TongTien() ;
+            if (radio == "Thanh toán trực tuyến")
+            {
+                hinhThuc = 2;
+            }
             ddh.MAHTTT = hinhThuc;
+            Session["DatHang"] = ddh;
+            if(hinhThuc == 2)
+            {
+                return RedirectToAction("Onepay", "GioHang");
+            }
+            
+            return RedirectToAction("XacNhanGioHang", "GioHang", new { id = 0 });
+        }
+        public ActionResult XacNhanGioHang(int id)
+        {
+
+            DONDATHANG ddh = (DONDATHANG)Session["DatHang"];
+            if (id == 0)
+            {
+                ddh.TRANGTHAITHANHTOAN = false;
+            }
+            else
+            {
+                ddh.TRANGTHAITHANHTOAN = true;
+            }
+            List<GioHang> gh = LayGioHang();
             data.DONDATHANGs.InsertOnSubmit(ddh);
             data.SubmitChanges();
-            foreach(var item in gh)
+            foreach (var item in gh)
             {
                 CT_DATHANG ctdh = new CT_DATHANG();
                 ctdh.MADDH = ddh.MADDH;
@@ -158,10 +180,7 @@ namespace OkCatStore.Controllers
             }
             data.SubmitChanges();
             Session["GioHang"] = null;
-            return RedirectToAction("XacNhanGioHang", "GioHang");
-        }
-        public ActionResult XacNhanGioHang()
-        {
+            Session["DatHang"] = null;
             return View();
         }
         public ActionResult Onepay()
@@ -233,7 +252,7 @@ namespace OkCatStore.Controllers
             // Kiem tra 2 tham so tra ve quan trong nhat
             if (hashvalidateResult == "CORRECTED" && txnResponseCode.Trim() == "0")
             {
-                return View("PaySuccess");
+                return RedirectToAction("XacNhanGioHang", "GioHang", new { id = 1 });
             }
             else if (hashvalidateResult == "INVALIDATED" && txnResponseCode.Trim() == "0")
             {
@@ -241,7 +260,7 @@ namespace OkCatStore.Controllers
             }
             else
             {
-                return View("PayUnSuccess");
+                return RedirectToAction("DatHang", "GioHang");
             }
         }
     }

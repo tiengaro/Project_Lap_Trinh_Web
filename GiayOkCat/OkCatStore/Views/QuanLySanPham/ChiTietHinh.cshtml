@@ -1,0 +1,38 @@
+﻿@model IEnumerable<OkCatStore.Models.HINHANH>
+
+@{
+    ViewBag.Title = "ChiTietHinh";
+    Layout = "~/Views/Admin/AdminLayout.cshtml";
+}
+
+<h2>Chi Tiết Hình</h2>
+
+<table class="table">
+    <tr>
+        <th width="100dp">
+            TÊN HÌNH
+        </th>
+        <th width="100dp">
+            HÌNH ẢNH
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.URLHINH)
+            </td>
+
+            <td>
+                <img src="~/images/@item.URLHINH" alt="" class="img-responsive" width="150px" />
+            </td>
+        </tr>
+    }
+</table>
+
+
+<div>
+    @Html.ActionLink("ĐIỀU CHỈNH HÌNH ẢNH", "HinhAnh", new { id = ViewBag.MaSP }) |
+    @Html.ActionLink("QUAY LẠI", "ChiTiet", new { id = ViewBag.MaSP })
+    
+</div>

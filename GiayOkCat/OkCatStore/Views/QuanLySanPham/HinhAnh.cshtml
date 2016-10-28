@@ -1,0 +1,50 @@
+﻿@model IEnumerable<OkCatStore.Models.HINHANH>
+
+@{
+    ViewBag.Title = "HinhAnh";
+    Layout = "~/Views/Admin/AdminLayout.cshtml";
+}
+
+<h2>Điều chỉnh hình ảnh sản phẩm</h2>
+
+<p>
+    @Html.ActionLink("THÊM HÌNH", "ThemHinh", new { id = ViewBag.MaSP })
+    @Html.ActionLink("XÓA TẤT CẢ", "XoaTatCa", new { id = ViewBag.MaSP })
+</p>
+<p><font color=red>@ViewBag.Loi</font></p>
+<table class="table">
+    <tr>
+        <th width="100dp">
+            TÊN HÌNH
+        </th>
+        <th width="100dp">
+            HÌNH ẢNH
+        </th>
+        <th width="200dp">
+            LỰA CHỌN
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.URLHINH)
+            </td>
+
+            <td>
+                <img src="~/images/@item.URLHINH" alt="" class="img-responsive" width="150px" />
+            </td>
+
+            <td>
+                @Html.ActionLink("Xóa", "XoaHinh", new { id = item.MAHINH }) |
+                @Html.ActionLink("Sửa", "SuaHinh", new { id = item.MAHINH })
+            </td>
+        </tr>
+    }
+</table>
+
+
+    <div>
+        @Html.ActionLink("QUAY LẠI", "Sua", new { id = ViewBag.MaSP }) |
+        @Html.ActionLink("QUẢN LÝ SẢN PHẨM", "Index")
+    </div>

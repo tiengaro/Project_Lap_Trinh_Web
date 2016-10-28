@@ -15,7 +15,7 @@ namespace OkCatStore.Controllers
         // GET: QuanLyKhachHang
         public ActionResult Index(int? page)
         {
-            //if (CheckAdmin() == false) return RedirectToAction("Login", "QuanLySanPham");
+            if (CheckAdmin() == false) return RedirectToAction("Login", "QuanLySanPham");
             int pageNumber = (page ?? 1);
             int pageSize = 10;
             return View(data.KHACHHANGs.ToList().OrderBy(n => n.MAKH).ToPagedList(pageNumber, pageSize));
@@ -23,7 +23,7 @@ namespace OkCatStore.Controllers
         //Hiển thị sản phẩm
         public ActionResult ChiTiet(int id)
         {
-            //if (CheckAdmin() == false) return RedirectToAction("Login", "QuanLySanPham");
+            if (CheckAdmin() == false) return RedirectToAction("Login", "QuanLySanPham");
             //Lay ra doi tuong sach theo ma
             KHACHHANG khachhang = data.KHACHHANGs.SingleOrDefault(n => n.MAKH == id);
             ViewBag.MAKH = khachhang.MAKH;
@@ -37,7 +37,7 @@ namespace OkCatStore.Controllers
         //Xóa sản phẩm
         public ActionResult Xoa(int id)
         {
-            //if (CheckAdmin() == false) return RedirectToAction("Login", "QuanLySanPham");
+            if (CheckAdmin() == false) return RedirectToAction("Login", "QuanLySanPham");
             //Lay ra doi tuong sach can xoa theo ma
             KHACHHANG khachhang = data.KHACHHANGs.SingleOrDefault(n => n.MAKH == id);
             ViewBag.MAKH = khachhang.MAKH;

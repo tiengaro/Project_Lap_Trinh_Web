@@ -67,7 +67,7 @@ namespace OkCatStore.Controllers
             //{
             //    ViewData["Loi"] = "Sai Mật Khẩu";
             //}
-
+            Session["TaiKhoan"] = kh;
             return MyAccount(id);
         }
         [HttpPost]
@@ -84,8 +84,15 @@ namespace OkCatStore.Controllers
             kh.HOTENKH = hoten;
             kh.DIACHIKH = diachi;
             kh.SODTKH = dienthoai;
-            data.KHACHHANGs.InsertOnSubmit(kh);
-            data.SubmitChanges();
+            try
+            {
+                data.KHACHHANGs.InsertOnSubmit(kh);
+                data.SubmitChanges();
+            }
+            catch(Exception e)
+            {
+
+            }
 
             return Redirect(strURL);
         }
@@ -203,6 +210,7 @@ namespace OkCatStore.Controllers
             UpdateModel(kh);
             data.SubmitChanges();
             ViewData["ThanhCong"] = "Cập Nhật Thành Công";
+            Session["TaiKhoan"] = kh;
             return DoiMatKhau(id);
         }
     }

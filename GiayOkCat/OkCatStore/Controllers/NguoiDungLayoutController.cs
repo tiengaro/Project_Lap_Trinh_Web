@@ -43,7 +43,7 @@ namespace OkCatStore.Controllers
 
         public ActionResult LaySanPhamTheoLoaiGiay(int MAPC, int count)
         {
-            var mSanPham = data.SANPHAMs.Where(x => x.MAPC == MAPC).Select(x => x).Take(count);
+            var mSanPham = data.SANPHAMs.Where(x => x.MAPC == MAPC).OrderByDescending(n => n.NGAYCAPNHAT).Take(count);
             return PartialView(mSanPham);
         }
 
@@ -94,7 +94,7 @@ namespace OkCatStore.Controllers
         }
         public ActionResult GetSanPhamLienQuan(int id)
         {
-            var mSanPhamLienQuan = data.SANPHAMs.OrderByDescending(n => n.NGAYCAPNHAT).Take(10).Where(m => m.MATH == id);
+            var mSanPhamLienQuan = data.SANPHAMs.Where(m => m.MATH == id).OrderByDescending(n => n.NGAYCAPNHAT).Take(10);
             return PartialView(mSanPhamLienQuan);
         }
         public ActionResult GetSizeSanPham(int id)
@@ -130,6 +130,7 @@ namespace OkCatStore.Controllers
         public ActionResult TimSanPham(FormCollection collection)
         {
             var tenSP = collection["Search"];
+            ViewBag.tuKhoa = tenSP;
             var lstSanPham = data.SANPHAMs.Where(n => n.TENSP.Contains(tenSP));
             return View(lstSanPham);
         }

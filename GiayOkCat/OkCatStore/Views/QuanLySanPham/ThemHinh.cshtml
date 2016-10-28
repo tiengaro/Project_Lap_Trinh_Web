@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "ThemHinh";
+    Layout = "~/Views/Admin/AdminLayout.cshtml";
+}
+
+<h2>Thêm Hình</h2>
+
+@using (Html.BeginForm("ThemHinh", "QuanLySanPham", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div id="multiple">
+        <input type="file" class="multiple" name="files" multiple  required=""/>
+    </div>
+
+    <input type="submit" value="Thêm" class="btn btn-default" />
+}
+<div>
+    @Html.ActionLink("QUAY LẠI", "HinhAnh", new { id = ViewBag.MaSP })
+</div>

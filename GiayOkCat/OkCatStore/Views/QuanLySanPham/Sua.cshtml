@@ -30,20 +30,24 @@
         </div>
 
         <div class="form-group">
-            ẢNH BÌA
-            @*@Html.LabelFor(ANHBIA, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="control-label col-md-2">
+                Ảnh Đại Diện
+            </div>
             <div class="col-md-10">
+                <img width="150px" src="~/images/@ViewBag.URLHinh" alt="" class="img-responsive" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="control-label col-md-2">
                 Chọn ảnh mới
+            </div>
+            <div class="col-md-10">
                 <input type="file" name="file" >
-                <img src="~/images/@ViewBag.URLHinh" alt="" class="img-responsive" />
                 @*thong bao trung*@
                 @ViewBag.Thongbao
             </div>
         </div>
         
-
-
-
         <div class="form-group">
             @Html.LabelFor(model => model.GIABAN, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -52,13 +56,13 @@
             </div>
         </div>
 
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.NGAYCAPNHAT, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.NGAYCAPNHAT, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.NGAYCAPNHAT, "", new { @class = "text-danger" })
             </div>
-        </div>
+        </div>*@
 
         <div class="form-group">
             @Html.LabelFor(model => model.MATH, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -85,5 +89,6 @@
 }
 
 <div>
-    @Html.ActionLink("QUẢN LÝ SẢN PHẨM", "Index")
+    @Html.ActionLink("QUẢN LÝ SẢN PHẨM", "Index") |
+    @Html.ActionLink("QUẢN LÝ HÌNH ẢNH", "HinhAnh", new { id = Model.MASP})
 </div>

@@ -16,14 +16,14 @@ namespace OkCatStore.Controllers
         DataClasses1DataContext dataHinh = new DataClasses1DataContext();
         public ActionResult Index(int? page)
         {
-            //if (CheckAdmin() == false) return RedirectToAction("Login", "QuanLySanPham");
+            if (CheckAdmin() == false) return RedirectToAction("Login", "QuanLySanPham");
             int pageNumber = (page ?? 1);
             int pageSize = 10;
             return View(data.THUONGHIEUs.ToList().OrderBy(n => n.MATH).ToPagedList(pageNumber, pageSize));
         }
         public ActionResult Sua(int id)
         {
-            //if (CheckAdmin() == false) return RedirectToAction("Login", "QuanLySanPham");
+            if (CheckAdmin() == false) return RedirectToAction("Login", "QuanLySanPham");
             THUONGHIEU thuonghieu = data.THUONGHIEUs.SingleOrDefault(n => n.MATH == id);
             ViewBag.MATH = thuonghieu.MATH;
             if (thuonghieu == null)
@@ -51,7 +51,7 @@ namespace OkCatStore.Controllers
         }
         public ActionResult ThemMoiTH()
         {
-            //if (CheckAdmin() == false) return RedirectToAction("Login", "QuanLySanPham");
+            if (CheckAdmin() == false) return RedirectToAction("Login", "QuanLySanPham");
             return View();
         }
         [HttpPost]
